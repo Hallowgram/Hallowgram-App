@@ -6,14 +6,15 @@
 <body>
 	<div id='pic'>
 		<img src=<%=pic.src || "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg"%>>
-		<button>Like</button>
+		<button id="like-btn"><%=pic.likedBy.length%>Like</button>
 		<button id='addComment'>Add Comment</button>
 	</div>
-	<div>
+	<div id="comments">
 		<% for (var i = 0; i < pic.comments.length; i++) {%>
 			<div><%=pic.comments[i]%></div>
 		<% }%>
 	</div>
-
+	<script type="text/javascript" src="../js/comments.js"></script>
+	<script type="text/javascript" src="../js/like.js"></script>
 </body>
 </html>
