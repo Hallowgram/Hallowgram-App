@@ -10,18 +10,20 @@
 
 <body>
     <div>
-        <img src="./static/images/2.png" alt="">
+        <img src="../images/hallow2.png" alt="HallowGram Logo">
     </div>
     <div>
         <h1>Login</h1>
     </div>
-    <form action="" method="get" accept-charset="utf-8">
-        <label for="email"></label>
-        <input id "email" type="email">
-        <label for="password"></label>
-        <input id "password" type="password">
-        <button type="Login"></button>
+    <form action="/login" method="POST" accept-charset="utf-8">
+        <label for="email">Email:</label>
+        <input name="email" id="email" type="email">
+        <label for="password">Password:</label>
+        <input name="password" id="password" type="password">
+        <button type="login">Login</button>
     </form>
+
+    <script src="../js/login.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>

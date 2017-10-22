@@ -8,27 +8,27 @@
 </head>
 <body>
 	<div>
-		<img src="./static/images/2.png" alt="">
+		<img src="../images/hallow2.png" alt="HallowGram Logo">
 	</div>
 	<div>
 		<h1>Sign Up</h1>
 	</div>
-	<form action="" method="get" accept-charset="utf-8">
-		<label for="firstName"></label>
-		<input id"firstName" type="text">
+	<form action="/sign-up" method="POST" accept-charset="utf-8">
+		<label for="firstName">First Name:</label>
+		<input name="firstName" id="firstName" type="text">
 
-		<label for="lastName"></label>
-		<input id"lastName" type="text">
+		<label for="lastName">Last Name:</label>
+		<input name="lastName" id="lastName" type="text">
 
-		<label for="email"></label>
-		<input id"email" type="email">
+		<label for="email">Email:</label>
+		<input name="email" id="email" type="email">
 
-		<label for="password"></label>
-		<input id"password" type="password">
+		<label for="password">Password:</label>
+		<input name="password" id="password" type="password">
 
-		<button type="Submit"></button>
+		<button id="submit" type="submit">Submit</button>
 	</form>
 
-
+<script src="../js/sign-up.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
