@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id='pic'>
+		<img src=<%=pic.src || "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg"%>>
+		<button>Like</button>
+		<button id='addComment'>Add Comment</button>
+	</div>
+	<div>
+		<% for (var i = 0; i < pic.comments.length; i++) {%>
+			<div><%=pic.comments[i]%></div>
+		<% }%>
+	</div>
+
+</body>
+</html>
