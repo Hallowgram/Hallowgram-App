@@ -20,19 +20,22 @@ var data ={
 	src: "http://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg",
 	comments: ["comments 1", "comments 2", "comments 3"],
 	likedBy: ['me','mike']
-	comments: ["comments 1", "comments 2", "comments 3"]
 }
 
 app.get('*', function(req, res){
-	res.render('login') //{pic: data}
+	res.render('login'); //{pic: data}
 })
 
 app.post('/sign-up', function(req, res){
-	res.send(req.body.firstName);
+	res.send(req.body);
 })
 
 app.post('/login', function(req, res){
-	res.send(req.body.email);
+	res.send(req.body);
+})
+
+app.post('/profile', function(req, res) {
+	res.render('profile');
 })
 
 app.post('/addComment',function(req, res){
@@ -43,12 +46,12 @@ app.post('/addComment',function(req, res){
 
 app.post('/like',function(req, res){
 	console.log('this is the user',req.body.user);
-	var useridx = data.likedBy.indexOf(req.body.user);
-	if(useridx === -1){
+	var userindx = data.likedBy.indexOf(req.body.user);
+	if(userindx === -1){
 
 		data.likedBy.push(req.body.user);
 	}else{
-		data.likedBy.splice(useridx,1);
+		data.likedBy.splice(userindx,1);
 	}
 })
 
