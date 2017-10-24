@@ -3,8 +3,39 @@ body {
 	text-align: center;
 }
 
+.logSignBackground {
+	position: fixed;
+    z-index: -3;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	background-image: url('../images/log-sign-background.jpg');
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
 .logoShaper {
 	border-radius: 50%;
 	width: 18em;
 	height: 18em;
+}
+
+/*styling for div of each label/input field together in form*/
+.field-shaper {
+	margin: 2em;
+}
+
+.inputFields {
+	font-size: 2em;
+}
+
+.labels {
+	font-size: 2em;
+}
+
+#login-button {
+	/*display: block;*/
+	float: center;
 }

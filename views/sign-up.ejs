@@ -4,29 +4,36 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>HallowGram Sign-Up</title>
-	<link rel="stylesheet" href="./static/style.css">
+	<link rel="stylesheet" href="../stylesheets/log-sign.css">
 </head>
 <body>
+	<div class="logSignBackground"></div>
 	<div>
-		<img src="../images/hallow2.png" alt="HallowGram Logo">
+		<img class="logoShaper" src="../images/hallow2.png" alt="HallowGram Logo">
 	</div>
 	<div>
 		<h1>Sign Up</h1>
 	</div>
 	<form action="/profile" method="POST" accept-charset="utf-8">
-		<label for="firstName">First Name:</label>
-		<input name="firstName" id="firstName" type="text">
-
-		<label for="lastName">Last Name:</label>
-		<input name="lastName" id="lastName" type="text">
-
-		<label for="email">Email:</label>
-		<input name="email" id="email" type="email">
-
-		<label for="password">Password:</label>
-		<input name="password" id="password" type="password">
-
-		<button id="submit" type="submit">Submit</button>
+		<div class="field-shaper">
+			<label for="firstName" class="labels">First Name:</label>
+			<input name="firstName" class="inputFields" id="firstName" type="text">
+		</div>
+		<div class="field-shaper">
+			<label for="lastName" class="labels">Last Name:</label>
+			<input name="lastName" class="inputFields" id="lastName" type="text">
+		</div>
+		<div class="field-shaper">
+			<label for="email" class="labels">Email:</label>
+			<input name="email" class="inputFields" id="email" type="email">
+		</div>
+		<div class="field-shaper">
+			<label for="password" class="labels">Password:</label>
+			<input name="password" class="inputFields" id="password" type="password">
+		</div>
+		<div class="field-shaper">
+			<button class="inputFields" id="submit" type="submit">Submit</button>	
+		</div>
 	</form>
 
 <script src="../js/sign-up.js" type="text/javascript" charset="utf-8"></script>
