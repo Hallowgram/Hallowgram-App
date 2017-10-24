@@ -5,7 +5,7 @@
 </head>
 <body>
 	<div id='pic'>
-		<img src=<%=pic.src || "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg"%>>
+		<img src=<%=pic.src%> || "http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg"%>>
 		<button id="like-btn"><%=pic.likedBy.length%>Like</button>
 		<button id='addComment'>Add Comment</button>
 	</div>

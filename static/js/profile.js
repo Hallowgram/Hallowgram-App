@@ -5,3 +5,7 @@ document.getElementById('edit-info').addEventListener('click', function(){
 
 	console.log(name);
 });
+
+document.getElementById('upload').addEventListener('click', function(){
+	alert('clicked me!');
+})

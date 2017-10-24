@@ -1,0 +1,10 @@
+body {
+	font-family: verdana;
+	text-align: center;
+}
+
+.logoShaper {
+	border-radius: 50%;
+	width: 18em;
+	height: 18em;
+}
