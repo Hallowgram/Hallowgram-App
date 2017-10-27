@@ -1,0 +1,14 @@
+
+{
+  "development": {
+        "username": "ubuntu",
+        "password": "Letmeinnow!",
+        "dialect": "postgres",
+        "host": "localhost",
+        "port": 5432,
+        "database": "hollowgram",
+        "jwtSecret": "MySuperDuperSecret",
+        "jwtExpiration": 60*5
+    }
+}
+
