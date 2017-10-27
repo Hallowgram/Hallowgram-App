@@ -1,4 +1,3 @@
-
 module.exports = function(sequelize, DataTypes) {
     var Pic = sequelize.define('pics', {
         userId: DataTypes.INTEGER,
@@ -13,3 +12,4 @@ module.exports = function(sequelize, DataTypes) {
 
     return Pic;
 };
+

@@ -5,6 +5,7 @@ var path = require("path");
 var Sequelize = require("sequelize");
 var env = process.env.NODE_ENV || "development";
 // Load DB config from config file
+
 var config = require(path.join(__dirname, 'config', 'config.js'))[env]; 
 
 // Init sequelize with params from config file

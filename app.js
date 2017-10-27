@@ -6,6 +6,7 @@ var Pic = require(__dirname+"/models/pic")
 var User = require(__dirname+"/models/user")
 var env = require('dotenv').load();
 var models = require("./db");//gets index.js by default
+
 var passport = require('passport')
 var session = require('express-session')
 
@@ -36,8 +37,6 @@ models.sequelize.sync().then(function() {
     console.log(err, "Something went wrong with the Database Update!")
  
 });
-
-
 
 
 app.get('/addComment', function(req, res){
