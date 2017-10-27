@@ -53,7 +53,18 @@ app.get('/login', function(req, res){
 })
 
 app.post('/login', function(req, res){
-	res.send(req.body);
+	User.findAll({
+	  where: {
+	    email: req.body.email
+	  }
+	}).then(function(user){
+		
+		
+		
+		res.send(user)
+
+		// res.redirect('/profile/' + user.id)
+	})
 })
 
 app.get('/profile/:id', function(req, res){
