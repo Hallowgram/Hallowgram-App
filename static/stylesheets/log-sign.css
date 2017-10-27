@@ -1,41 +1,52 @@
+
+
+[8:12] 
 body {
-	font-family: verdana;
-	text-align: center;
+    font-family: verdana;
+    text-align: center;
 }
 
 .logSignBackground {
-	position: fixed;
-    z-index: -3;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-	background-image: url('../images/log-sign-background.jpg');
-	background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    position: fixed;
+   z-index: -3;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+    background-image: url('../images/log-sign-background.png');
+    background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
 }
 
 .logoShaper {
-	border-radius: 50%;
-	width: 18em;
-	height: 18em;
+    border-radius: 50%;
+    width: 18em;
+    height: 18em;
 }
 
 /*styling for div of each label/input field together in form*/
 .field-shaper {
-	margin: 2em;
+    margin: 2em;
 }
 
 .inputFields {
-	font-size: 2em;
+    font-size: 2em;
 }
 
 .labels {
-	font-size: 2em;
+    font-size: 2em;
 }
 
 #login-button {
-	/*display: block;*/
-	float: center;
+    /*display: block;*/
+    float: center;
+}
+
+#email {
+    margin-left: 2.6em;
+}
+
+#password {
+    margin-left: 0.65em;
 }

@@ -1,11 +1,15 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+var Pic = require(__dirname+"/models/pic")
+var User = require(__dirname+"/models/user")
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/static"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+
+
 
 
 var data ={
@@ -22,8 +26,27 @@ app.get('/sign-up', function(req, res){
 })
 
 app.post('/sign-up', function(req, res){
-	res.send(req.body);
+	
+	User.sync().then(function(){
+
+		
+		User.create({
+            email: req.body.email,
+            firstname: req.body.firstName,
+            lastname: req.body.lastName,
+            username: req.body.email,
+            password: req.body.password,
+            createdAt: 11/18/17,
+            updatedAt: 11/18/17
+        }).then(function(user){
+        	
+        	res.redirect('/profile/' + user.dataValues.id)
+        });
+        
+		
+	})
 })
+
 
 app.get('/login', function(req, res){
 	res.render('login')
@@ -33,8 +56,17 @@ app.post('/login', function(req, res){
 	res.send(req.body);
 })
 
-app.get('/profile', function(req, res){
-	res.render('profile', {info: data})
+app.get('/profile/:id', function(req, res){
+
+	
+
+		User.findById(req.params.id).then(function(row){
+			
+			res.render('profile', {info: row})
+
+		})	
+		
+
 })
 
 app.post('/profile', function(req, res) {
@@ -67,6 +99,7 @@ app.get('/', function(req, res){
 })
 
 var port = process.env.PORT || 3000;
+
 app.listen(port,function(){
     console.log('listening at port ',port);
-});
+}); 
