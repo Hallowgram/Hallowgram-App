@@ -9,19 +9,24 @@
 </head>
 
 <body>
+    <div class="profileBackground"></div>
     <div>
-        <img src="../images/hallow1.png" alt="HallowGram Logo">
+        <img class="logoShaper" src="../images/hallow1.png" alt="HallowGram Logo">
     </div>
-    <div id="name-info">
-        <label for="name">Name:</label>
-        <input type="name" name="name" id="name" value=<%=info.name%>>
-    </div>
-    <div id="descrip-info">
-        <label for="description">Description:</label>
-        <textarea type="text" name="description" id="description" cols="60" rows="10"><%=info.description%></textarea>
-    </div>
-    <button id="edit-info" type="edit">Edit</button>
-    <button id="upload" type="upload">Upload</button>
-    <button>View Posts</button>
-    <script src="../js/profile.js" type="text/javascript" charset="utf-8"></script>
+    <form action="profile_submit" method="get" accept-charset="utf-8">
+        <div class="field-shaper" id="name-info">
+            <label for="name" class="labels">Name:</label>
+            <input type="text" name="name" class="inputFields" id="name">
+        </div>
+        <div class="field-shaper" id="descrip-info">
+            <label for="description" class="labels">Description:</label>
+            <textarea type="text" name="description" class="inputFields" id="description" cols="60" rows="10"></textarea>
+        </div>
+        <div class="field-shaper">
+            <button id="edit-info" type="edit">Edit</button>
+            <button id="upload" type="upload">Upload</button>
+            <button>View Posts</button>
+        </div>
+        <script src="../js/profile.js" type="text/javascript" charset="utf-8"></script>
+    </form>
 </body>
