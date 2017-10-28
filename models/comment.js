@@ -4,43 +4,45 @@ var config = require(__dirname + '/../config/config.json').development;
 var sequelize = new Sequelize(config.database, config.username, config.password, config);
 
 
-var User = sequelize.define('users', {
-   id: {
+var Comment = sequelize.define('comments', {
+    id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement: true
-   },
-      firstname: {
+        autoIncrement: true,
+        allowNull: false
+    },
+    userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+        model: "users",
+        key: "id"
+        }
+    },
+    picId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+        model: "pics",
+        key: "id"
+        }
+    },
+    text: {
         allowNull: false,
         type: Sequelize.STRING
-   },
-   lastname: {
-        allowNull: false,
-        type: Sequelize.STRING
-   },
-   username: {
-        allowNull: false,
-        type: Sequelize.STRING
-   },
-   email: {
-        allowNull: false,
-        type: Sequelize.STRING
-   },
-   password: {
-        allowNull: false,
-        type: Sequelize.STRING
-   },
-   createdAt: {
+    },
+    createdAt: {
         allowNull: false,
         type: Sequelize.DATE
-   },
-   updatedAt: {
+    },
+    updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-   }
+    }
 }, {
     timestamps: false
 });
 
-module.exports = User;
+module.exports = Comment;
+
 
