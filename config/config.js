@@ -1,4 +1,4 @@
-
+const CONFIGURATION =
 {
   "development": {
         "username": "ubuntu",
@@ -12,3 +12,4 @@
     }
 }
 
+module.exports = CONFIGURATION

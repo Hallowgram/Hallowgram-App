@@ -5,14 +5,26 @@ var Pic = require(__dirname+"/models/pic")
 var User = require(__dirname+"/models/user")
 var env = require('dotenv').load();
 var models = require("./db");//gets index.js by default
+var passport = require('passport')
+var session = require('express-session')
+
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/static"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+// For Passport
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 
-
-
+var authRoute = require(__dirname+"/routes/auth.js")(app,passport);
+require(__dirname +'/config/passport/passport.js')(passport, models.users);
 
 models.sequelize.sync().then(function() {
  
@@ -24,72 +36,8 @@ models.sequelize.sync().then(function() {
  
 });
 
-app.get('/sign-up', function(req, res){
-	res.render('sign-up')
-})
-
-app.post('/sign-up', function(req, res){
-	
-	User.sync().then(function(){
-
-		
-		User.create({
-            email: req.body.email,
-            firstname: req.body.firstName,
-            lastname: req.body.lastName,
-            username: req.body.email,
-            password: req.body.password,
-            createdAt: 11/18/17,
-            updatedAt: 11/18/17
-        }).then(function(user){
-        	
-        	res.redirect('/profile/' + user.dataValues.id)
-        });
-        
-		
-	})
-})
 
 
-app.get('/login', function(req, res){
-	res.render('login')
-})
-
-app.post('/login', function(req, res){
-	User.findAll({
-	  where: {
-	    email: req.body.email
-	  }
-	}).then(function(user){
-		
-		
-		
-		res.send(user)
-
-		// res.redirect('/profile/' + user.id)
-	})
-})
-
-app.get('/profile/:id', function(req, res){
-
-	
-
-		User.findById(req.params.id).then(function(row){
-			
-			res.render('profile', {info: row})
-
-		})	
-		
-
-})
-
-app.get('/profile', function(req, res) {
-	res.render('profile');
-})
-
-app.post('/profile', function(req, res) {
-	res.render('profile');
-})
 
 app.get('/addComment', function(req, res){
 	res.render('commentview', {pic: data})
