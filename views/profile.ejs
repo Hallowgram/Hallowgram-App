@@ -13,8 +13,7 @@
     <div>
         <img class="logoShaper" src="../images/hallow1.png" alt="HallowGram Logo">
     </div>
-    <!-- multer handles multipart form data so you need to encode the data-->
-    <form action="/profile/upload" method="POST" name="uploadForm" accept-charset="utf-8" enctype="multipart/form-data"> 
+    <form action="profile_submit" method="get" accept-charset="utf-8">
         <div class="field-shaper" id="name-info">
             <label for="name" class="labels">Name:</label>
             <input type="text" name="name" class="inputFields" id="name">
@@ -24,15 +23,10 @@
             <textarea type="text" name="description" class="inputFields" id="description" cols="60" rows="10"></textarea>
         </div>
         <div class="field-shaper">
-            <input type="file" id="myFile" name="myFile">
-            <button type="submit" id="uploadSubmit" name="uploadSubmit">Upload</button>
+            <button id="edit-info" type="edit">Edit</button>
+            <button id="upload" type="upload">Upload</button>
+            <button>View Posts</button>
         </div>
-    </form>
-    
-    <div class="field-shaper">
-        <button id="edit-info" type="edit">Edit</button>
-        <button>View Posts</button>
-    </div>
-
         <script src="../js/profile.js" type="text/javascript" charset="utf-8"></script>
+    </form>
 </body>

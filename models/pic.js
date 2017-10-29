@@ -1,16 +1,15 @@
-var Sequelize = require('sequelize');
-var config = require(__dirname + '/../config/config.json').development;
 
-var sequelize = new Sequelize(config.database, config.username, config.password, config);
+module.exports = function(sequelize, DataTypes) {
+    var Pic = sequelize.define('pics', {
+        userId: DataTypes.INTEGER,
+		url: DataTypes.STRING
+    }, {
+        classMethods: {
+            associate: function(models) {
 
+            }
+        }
+    });
 
-var Pic = sequelize.define('pics',{
-	userId: Sequelize.INTEGER,
-	url: Sequelize.STRING,
-	firstname: Sequelize.STRING,
-	lastname: Sequelize.STRING
-});
-
-Pic.sync()
-
-module.exports = Pic;
+    return Pic;
+};
