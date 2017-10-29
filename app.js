@@ -11,17 +11,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 
-
-
-// var data ={
-//     id:1,
-//     name: "Michael",
-//     description: "testing testting 1234546",
-//     src: "http://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg",
-//     comments: ["comments 1", "comments 2", "comments 3"],
-//     likedBy: ["me","mike"]
-// };
-
 app.get("/sign-up", function(req, res){
     res.render("sign-up");
 });
@@ -55,7 +44,6 @@ app.post("/login", function(req, res){
 	}).then(function(user){
 		res.send(user);
 
-		// res.redirect('/profile/' + user.id)
 	});
 });
 
@@ -100,13 +88,16 @@ app.post("/profile/upload", function(request, response) {
 		}
 		response.end("File is uploaded! :)")
 	});
-	Pic.findById(request.params.id).then(function(row){
+	Pic.sync().then(function(){
+		Pic.create({
+			// userId: request.body.userId,
+			url: request.body.url
+		});
+		// response.redirect('/profile')
+	});	
 
-			console.log(request.file);	
-			// response.send('"profile", {info: row}');
+})	
 
-		});	
-});
 
 
 
