@@ -43,6 +43,8 @@ var Comment = sequelize.define('comments', {
     timestamps: false
 });
 
+comment.sync()
+
 module.exports = Comment;
 
 

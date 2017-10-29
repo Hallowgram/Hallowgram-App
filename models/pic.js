@@ -11,4 +11,6 @@ var Pic = sequelize.define('pics',{
 	lastname: Sequelize.STRING
 });
 
+Pic.sync()
+
 module.exports = Pic;

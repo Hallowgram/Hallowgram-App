@@ -11,4 +11,6 @@ var Like = sequelize.define('likes',{
 	lastname: Sequelize.STRING
 });
 
+Like.sync()
+
 module.exports = Like;

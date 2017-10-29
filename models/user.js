@@ -42,5 +42,7 @@ var User = sequelize.define('users', {
     timestamps: false
 });
 
+User.sync()
+
 module.exports = User;
 
