@@ -1,9 +1,10 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
+var multer = require('multer');
 var app = express();
-var Pic = require(__dirname+"/models/pic")
-var User = require(__dirname+"/models/user")
+var Pic = require(__dirname+"/models/pic");
+var User = require(__dirname+"/models/user");
 var env = require('dotenv').load();
 var models = require("./db");//gets index.js by default
 
@@ -25,8 +26,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
-var authRoute = require(__dirname+"/routes/auth.js")(app,passport);
+// console.log(typeof models.users);
+
 require(__dirname +'/config/passport/passport.js')(passport, models.users);
+require(__dirname+"/routes/auth.js")(app,passport);
 
 models.sequelize.sync().then(function() {
  
@@ -37,6 +40,34 @@ models.sequelize.sync().then(function() {
     console.log(err, "Something went wrong with the Database Update!")
  
 });
+
+/* 
+Multer - Upload Storage and File Destination  
+*/
+var photoStorage = multer.diskStorage({
+	destination: function(request, file, callback) {
+		callback(null, __dirname + "/static/images/uploads");
+	},
+	filename: function(request, file, callback){
+		// console.log(file.originalname)
+		callback(null, Date.now() + file.originalname);
+
+	}
+});
+
+
+app.post("/profile/upload", function(request, response) {
+	var photoUpload = multer({storage : photoStorage}).single('myFile');
+	photoUpload(request, response, function(err){
+		if(err){
+			return response.end("Error Uploading File!")
+		}
+		response.end("File is uploaded! :)")
+	});
+
+	res.redirect('/profile');
+
+})	
 
 
 app.get('/addComment', function(req, res){
@@ -61,6 +92,7 @@ app.post('/like',function(req, res){
 })
 
 app.get('/', function(req, res){
+	req.session.destroy();
 	res.render('login');
 })
 

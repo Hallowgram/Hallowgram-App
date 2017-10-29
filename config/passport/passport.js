@@ -1,18 +1,27 @@
 var bCrypt = require('bcrypt');
+
+var User = require("../../db").users;
+  
+var LocalStrategy = require('passport-local').Strategy;
+module.exports = function(passport) {
+    
+    console.log('hello');
+
  
  
-module.exports = function(passport, user) {
+    
+    passport.serializeUser(function(user, done) {
+                    console.log('serializing user')
+
+                     done(null, user.id);
  
-    var User = user;
- 
-    var LocalStrategy = require('passport-local').Strategy;
- 
- 
+    });
+
     passport.use('local-signup', new LocalStrategy(
  
         {
  
-            usernameField: 'username',
+            usernameField: 'email',
  
             passwordField: 'password',
  
@@ -22,7 +31,7 @@ module.exports = function(passport, user) {
  
  
  
-        function(req, username, password, done) {
+        function(req, email, password, done) {
 
             var generateHash = function(password) {
  
@@ -34,7 +43,7 @@ module.exports = function(passport, user) {
  
             User.findOne({
                 where: {
-                    username: username
+                    email: email
                 }
             }).then(function(user) {
  
@@ -55,9 +64,9 @@ module.exports = function(passport, user) {
                     var data =
  
                         {
-                            username: username,
+                            username: req.body.username,
 
-                            email: req.body.email,
+                            email: email,
  
                             password: userPassword,
  
@@ -87,11 +96,6 @@ module.exports = function(passport, user) {
  
             });
             
-            passport.serializeUser(function(user, done) {
- 
-                     done(null, user.id);
- 
-            });
             
             passport.deserializeUser(function(id, done) {
  
@@ -110,13 +114,14 @@ module.exports = function(passport, user) {
                 });
  
             });
+        }));
             
 // **************************************************************************************************
 // **************************************************************************************************
 // Signin
 // **************************************************************************************************
 
-        passport.use('local-signin', new LocalStrategy(
+        passport.use('local-login', new LocalStrategy(
          
             {
          
@@ -126,27 +131,26 @@ module.exports = function(passport, user) {
          
                 passwordField: 'password',
          
-                passReqToCallback: true // allows us to pass back the entire request to the callback
+                // passReqToCallback: true // allows us to pass back the entire request to the callback
          
             },
          
          
-            function(req, email, password, done) {
+            function(email, userpassword, done) {
+
+                // console.log(email);
          
-                var User = user;
-         
-                var isValidPassword = function(userpass, password) {
-         
-                    return bCrypt.compareSync(password, userpass);
-         
+                var isValidPassword = function(userpassword,databasepassword) {
+                    console.log(databasepassword, userpassword);
+                    return bCrypt.compareSync(userpassword, databasepassword)
+                    
                 }
-         
+                
                 User.findOne({
                     where: {
                         email: email
                     }
                 }).then(function(user) {
-         
                     if (!user) {
          
                         return done(null, false, {
@@ -154,8 +158,9 @@ module.exports = function(passport, user) {
                         });
          
                     }
-         
-                    if (!isValidPassword(user.password, password)) {
+
+                    // console.log(isValidPassword(userpass, password));
+                    if (!isValidPassword(userpassword, user.dataValues.password)) {
          
                         return done(null, false, {
                             message: 'Incorrect password.'
@@ -165,7 +170,25 @@ module.exports = function(passport, user) {
          
          
                     var userinfo = user.get();
+                    // console.log(userInfo)
                     return done(null, userinfo);
+                                passport.deserializeUser(function(id, done) {
+ 
+                User.findById(id).then(function(user) {
+             
+                    if (user) {
+             
+                        done(null, user.get());
+             
+                    } else {
+             
+                        done(user.errors, null);
+             
+                    }
+             
+                });
+ 
+            });
          
          
                 }).catch(function(err) {
@@ -184,7 +207,4 @@ module.exports = function(passport, user) {
         ));
  
         }
- 
-    ));
- 
-}
+  
