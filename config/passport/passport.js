@@ -23,7 +23,7 @@ module.exports = function(passport, user) {
  
  
         function(req, username, password, done) {
- 
+
             var generateHash = function(password) {
  
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
