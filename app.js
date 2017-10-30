@@ -62,10 +62,8 @@ app.post("/profile/upload", function(req, res) {
 		if(err){
 			return res.send("Error Uploading File!")
 		}
-		return res.send("File is uploaded! :)")
+		res.redirect('/profile');
 	});
-
-	res.redirect('/profile');
 
 })	
 
