@@ -5,13 +5,12 @@ module.exports = function(sequelize, DataTypes) {
         firstname: DataTypes.STRING,
         lastname: DataTypes.STRING,
         username: DataTypes.STRING
-    }, {
-        classMethods: {
-            associate: function(models) {
-
-            }
-        }
-    });
+    }); 
+    User.associate = function(models) {
+                User.hasMany(models.comments); 
+                User.hasMany(models.pics); 
+            
+    };
 
     return User;
 };
