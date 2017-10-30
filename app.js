@@ -45,8 +45,10 @@ models.sequelize.sync().then(function() {
 Multer - Upload Storage and File Destination  
 */
 var photoStorage = multer.diskStorage({
-	destination: function(req, file, callback) {
-		callback(null, __dirname + "/static/images/uploads");
+
+	destination: function(request, file, callback) {
+		callback(null, __dirname + "/static/images/multerUploads");
+
 	},
 	filename: function(req, file, callback){
 		// console.log(file.originalname)

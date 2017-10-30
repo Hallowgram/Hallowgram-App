@@ -6,9 +6,9 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     Comment.associate = function(models) {
-                Comment.belongsTo(models.users); 
-                Comment.belongsTo(models.pics); 
-            
+        Comment.belongsTo(models.users);
+        Comment.belongsTo(models.pics);
+
     };
     return Comment;
 };
