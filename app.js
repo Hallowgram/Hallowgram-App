@@ -56,13 +56,13 @@ var photoStorage = multer.diskStorage({
 });
 
 
-app.post("/profile/upload", function(request, response) {
+app.post("/profile/upload", function(req, res) {
 	var photoUpload = multer({storage : photoStorage}).single('myFile');
-	photoUpload(request, response, function(err){
+	photoUpload(req, res, function(err){
 		if(err){
-			return response.end("Error Uploading File!")
+			return res.send("Error Uploading File!")
 		}
-		response.end("File is uploaded! :)")
+		return res.send("File is uploaded! :)")
 	});
 
 	res.redirect('/profile');
