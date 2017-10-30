@@ -1,7 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
     var Pic = sequelize.define('pics', {
         userId: DataTypes.INTEGER,
-		url: DataTypes.STRING
+		url: DataTypes.STRING,
+		name: DataTypes.STRING,
+		description: DataTypes.STRING
     });
     
     Pic.associate = function(models) {

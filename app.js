@@ -45,10 +45,10 @@ models.sequelize.sync().then(function() {
 Multer - Upload Storage and File Destination  
 */
 var photoStorage = multer.diskStorage({
-	destination: function(request, file, callback) {
+	destination: function(req, file, callback) {
 		callback(null, __dirname + "/static/images/uploads");
 	},
-	filename: function(request, file, callback){
+	filename: function(req, file, callback){
 		// console.log(file.originalname)
 		callback(null, Date.now() + file.originalname);
 
@@ -57,14 +57,24 @@ var photoStorage = multer.diskStorage({
 
 
 app.post("/profile/upload", function(req, res) {
+	
 	var photoUpload = multer({storage : photoStorage}).single('myFile');
 	photoUpload(req, res, function(err){
+		
 		if(err){
 			return res.send("Error Uploading File!")
 		}
-		res.redirect('/profile');
+		models.pics.sync().then(function(){
+			models.pics.create({
+				userId: req.user.id,
+				url: '/static/images/uploads',
+	            name: req.body.name,
+	            description: req.body.description
+        	});
+        	res.redirect('/profile')
+			
+		});
 	});
-
 })	
 
 
