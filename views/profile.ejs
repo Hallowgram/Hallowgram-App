@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html>
-
+<%- include ./partials/header %>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Profile</title>
     <link rel="stylesheet" href="../stylesheets/profile.css">
 </head>
 
 <body>
     <div class="profileBackground"></div>
-    <div>
+    <!-- <div>
         <img class="logoShaper" src="../images/hallow1.png" alt="HallowGram Logo">
     </div>
     <%if(imageUrls === undefined) {%>
@@ -21,6 +16,8 @@
           <p><img src=<%= imageUrls[i]%> class="user-images" alt="Image"></p>
         <% } %>
     <% } %>
+
+    </div> -->
     <!-- multer handles multipart form data so you need to encode the data-->
     <form action="/profile/upload" method="POST" name="uploadForm" accept-charset="utf-8" enctype="multipart/form-data"> 
         <div class="field-shaper" id="name-info">
@@ -42,5 +39,5 @@
         <button>View Posts</button>
     </div>
 
-        <script src="../js/profile.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/profile.js" type="text/javascript" charset="utf-8"></script>
 </body>

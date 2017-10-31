@@ -15,6 +15,12 @@ textarea {
 button {
     font-size: 1.5em;
     margin-left: 1em;
+    color: #DF7000;
+    background-color: black;
+}
+
+label {
+  font-weight: normal !important;
 }
 .user-images{
     width: 30%;
@@ -58,9 +64,22 @@ button {
 
 #description {
     font-size: 1em;
+    background-color: black;
+    color: orange;
 }
 
 #name {
-
     margin-right: 3.8em;
+    background-color: black;
+    color: #DF7000;
+}
+
+input[type=file] {
+  display: inline;
+  color: #DF7000;
+}
+
+#myFile {
+  width: 14em;
+  font-size: 1.3em;
 }

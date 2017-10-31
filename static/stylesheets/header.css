@@ -1,0 +1,48 @@
+.head-push {
+	height: 6em;
+}
+body {
+	font-family: verdana;
+}
+
+nav {
+    background-color: #FF7000;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+ul {
+	float: none !important;
+	margin: 0 !important;
+	margin-left: 13.5em !important;
+}
+
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: white;
+}
+
+.nav .navbar .navbar-nav {
+	display: inline-block;
+ 	float: none !important;
+ 	vertical-align: top;
+}
+
+.row {
+	margin-left: 0 !important;
+}
+
+.logoShaperHeader {
+    border-radius: 50%;
+    height: 4em;
+    padding: 0 2em;
+}
+
+.li-spacer {
+	padding-right: 5em;
+}
