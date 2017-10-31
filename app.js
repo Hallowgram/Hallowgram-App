@@ -70,7 +70,7 @@ app.post("/profile/upload", function(req, res) {
 		}
 		models.pics.sync().then(function(){
 			models.pics.create({
-				userId: req.user.id,
+				userId: req.body.userId,
 				url: "../images/uploads/"+req.file.filename,
 	            name: req.body.name,
 	            description: req.body.description
@@ -82,6 +82,9 @@ app.post("/profile/upload", function(req, res) {
 	});
 })	
 
+app.get('/newsfeed', function(req, res){
+	res.render('newsfeed')
+})
 
 app.get('/addComment', function(req, res){
 	res.render('commentview', {pic: data})

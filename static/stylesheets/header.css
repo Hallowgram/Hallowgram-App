@@ -1,8 +1,13 @@
+@font-face {
+	font-family: witches-magic;
+	src: url("../fonts/Witches-Magic.ttf") format("truetype");
+}
+
 .head-push {
-	height: 6em;
+	height: 16em;
 }
 body {
-	font-family: verdana;
+	font-family: witches-magic !important;
 }
 
 nav {
@@ -14,7 +19,7 @@ nav {
 ul {
 	float: none !important;
 	margin: 0 !important;
-	margin-left: 13.5em !important;
+	margin-left: 24.3em !important;
 }
 
 
@@ -49,6 +54,14 @@ a:hover {
 }
 
 .mylogo:hover {
-	transform: scale(2.5);
+	transform: scale(2.4);
 	transition: transform .25s ease;
+}
+
+.nav > li > a:hover, .nav > li > a:focus { 
+	background-color:#FF7000; 
+}
+
+.pad-top {
+	padding-top: 1.2em;
 }

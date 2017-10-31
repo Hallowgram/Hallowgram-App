@@ -1,10 +1,3 @@
-// document.getElementById('edit-info').addEventListener('click', function(){
-// 	alert('clicked button!');
-// 	var name = document.getElementById('name-info');
-// 	var descrip = document.getElementById('descrip-info');
-
-// 	console.log(name);
-// });
 
 var form = document.forms.namedItem("uploadForm");
 
@@ -19,7 +12,7 @@ form.addEventListener('submit', function(event){
 	//create constructor for request
 	var pRequest = new XMLHttpRequest();
 	//initialize the request (true param is if to run async or not)
-	pRequest.open("POST", "/profile/upload", true);
+	pRequest.open("POST", "/profile/multerUpload", true);
 
 	dataCompile.onload = function(data) {
 

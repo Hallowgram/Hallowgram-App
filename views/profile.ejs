@@ -5,19 +5,22 @@
 
 <body>
     <div class="profileBackground"></div>
-    <!-- <div>
+    <div id="defaultImg">
         <img class="logoShaper" src="../images/hallow1.png" alt="HallowGram Logo">
     </div>
-    <%if(imageUrls === undefined) {%>
+
+    <div id="profileImg">
+        <img id="picFill" src="" alt="">
+    </div>
+    <!-- <%if(imageUrls === undefined) {%>
     
        <h1>Upload and Image!!!</h1>
     <% } else{%>
         <% for (var i = 0; i < imageUrls.length; i++ ) { %>
           <p><img src=<%= imageUrls[i]%> class="user-images" alt="Image"></p>
         <% } %>
-    <% } %>
+    <% } %> -->
 
-    </div> -->
     <!-- multer handles multipart form data so you need to encode the data-->
     <form action="/profile/upload" method="POST" name="uploadForm" accept-charset="utf-8" enctype="multipart/form-data"> 
         <div class="field-shaper" id="name-info">
@@ -40,4 +43,5 @@
     </div>
 
     <script src="../js/profile.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
 </body>

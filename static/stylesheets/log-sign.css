@@ -1,6 +1,17 @@
+@font-face {
+  font-family: witches-magic;
+  src: url("../fonts/Witches-Magic.ttf") format("truetype");
+}
+
 body {
-    font-family: verdana;
+    font-family: witches-magic !important;
     text-align: center;
+}
+
+button {
+  font-family: witches-magic;
+  background-color: black;
+  color: #DF7000;
 }
 
 .logSignBackground {
@@ -38,12 +49,17 @@ body {
 #login-button {
     /*display: block;*/
     float: center;
+    margin-top: 1em;
 }
 
 #email-style {
     margin-left: 2.6em;
+    background-color: black;
+    color: #FF7000;
 }
 
 #password-style {
     margin-left: 0.65em;
+    background-color: black;
+    color: #FF7000;
 }

@@ -1,5 +1,5 @@
 body {
-    font-family: verdana;
+    font-family: witches-magic;
     text-align: center;
 }
 
@@ -41,8 +41,8 @@ label {
 
 .logoShaper {
     border-radius: 50%;
-    width: 18em;
-    height: 18em;
+    width: 12em;
+    height: 12em;
 }
 
 /*styling for div of each label/input field together in form*/
@@ -56,6 +56,10 @@ label {
 
 .labels {
     font-size: 2em;
+}
+
+#name-info {
+  margin-right: 0;
 }
 
 #descrip-info {
@@ -75,6 +79,8 @@ label {
 }
 
 input[type=file] {
+  padding: 0;
+  font-weight: bold;
   display: inline;
   color: #DF7000;
 }
