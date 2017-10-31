@@ -16,6 +16,10 @@ module.exports = {
             key: "id"
           } 
       },
+      name: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       url: {
         allowNull: false,
         type: Sequelize.STRING

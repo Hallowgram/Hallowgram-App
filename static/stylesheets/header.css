@@ -45,4 +45,10 @@ a:hover {
 
 .li-spacer {
 	padding-right: 5em;
+	padding-top: 1em; 
+}
+
+.mylogo:hover {
+	transform: scale(2.5);
+	transition: transform .25s ease;
 }
