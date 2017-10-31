@@ -19,6 +19,7 @@
             <img class="logoShaper" src="../images/hallow1.png" alt="HallowGram Logo">
         </div>
     <% } %>
+    <!-- multer handles multipart form data so you need to encode the data-->
     <form action="/profile/upload" method="POST" name="uploadForm" accept-charset="utf-8" enctype="multipart/form-data"> 
         <div class="field-shaper" id="name-info">
             <label for="name" class="labels">Name:</label>
@@ -33,7 +34,6 @@
             <button type="submit" id="uploadSubmit" name="uploadSubmit">Upload</button>
         </div>
     </form>
-    <!-- multer handles multipart form data so you need to encode the data-->
 
     
     <div class="field-shaper">
