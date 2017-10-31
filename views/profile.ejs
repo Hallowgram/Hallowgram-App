@@ -5,16 +5,17 @@
 
 <body>
     <div class="profileBackground"></div>
+   
 
-     <%if(imageUrls.length > 0) {%>
-
+   
+     <% if(imageUrls.length > 0) { %>
         <% for (var i = 0; i < imageUrls.length; i++ ) { %>
           <div id="profileImg">
             <img id="picFill" src=<%= imageUrls[i]%> class="user-images" alt="Image">
         </div>
         <% } %>
-       
-    <% } else{%>
+      
+    <% } else{ %>
          <div id="defaultImg">
             <img class="logoShaper" src="../images/hallow1.png" alt="HallowGram Logo">
         </div>
