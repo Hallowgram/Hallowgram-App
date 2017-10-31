@@ -58,6 +58,9 @@ button {
     color: #FF7000;
 }
 
+#firstname, 
+#lastname,
+#username-style,
 #password-style {
     margin-left: 0.65em;
     background-color: black;
