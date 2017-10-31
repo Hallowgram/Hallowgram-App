@@ -5,7 +5,7 @@
 
 <%if(imageData !== undefined) {%>
         <% for (var i = 0; i < imageData.length; i++ ) { %>
-          <p><img src=<%= imageData[i].url%> class="user-images" alt="Image"><span class="username"> Uploaded By User:<%= imageData[i].userId%></span></p>
+          <p><img src=<%= imageData[i].url%> class="user-images" alt="Image"><span class="username"> Uploaded By User:<%= imageData[i].username%></span></p>
         <% } %>
        
 <% } else{%>

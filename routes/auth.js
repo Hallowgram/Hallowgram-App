@@ -1,5 +1,6 @@
 var authController = require('../controllers/authcontroller.js');
 
+
 module.exports = function(app, passport, models) {
 
     app.get('/signup', authController.signup);
@@ -71,11 +72,12 @@ module.exports = function(app, passport, models) {
 // ***********************************************************************     
 app.get('/newsfeed', isLoggedIn, function(req,res){
         
-        models.pics.findAll().then(function(data){
+        models.pics.findAll({include: [{model: models.users}]}).then(function(data){
             
             var imgDetailsArr = data.map(function(dataValues){
+                console.log('this is my data', dataValues.user)
                 var links = {}
-                 links.userId = dataValues.userId
+                 links.username = dataValues.user.username
                  links.url = dataValues.url;
                  return links;
             });
