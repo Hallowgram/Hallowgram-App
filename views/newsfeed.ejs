@@ -1,10 +1,13 @@
 <%- include ./partials/header %>
-
 <head>
-    <title>News Feed</title>
-    <link rel="stylesheet" href="./static/newsfeed.css">
+    <link rel="stylesheet" href="../stylesheets/profile.css">
 </head>
 
-<body>
-	
-</body>
+<%if(imageData !== undefined) {%>
+        <% for (var i = 0; i < imageData.length; i++ ) { %>
+          <p><img src=<%= imageData[i].url%> class="user-images" alt="Image"><span class="username"> Uploaded By User:<%= imageData[i].userId%></span></p>
+        <% } %>
+       
+<% } else{%>
+    <h1>Upload and Image!!!</h1>
+<% } %>

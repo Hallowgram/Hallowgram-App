@@ -65,7 +65,29 @@ module.exports = function(app, passport, models) {
             
         });
     });
-    // ***********************************************************************    
+// ***********************************************************************    
     app.get('/logout', authController.logout);
+    
+// ***********************************************************************     
+app.get('/newsfeed', isLoggedIn, function(req,res){
+        
+        models.pics.findAll().then(function(data){
+            
+            var imgDetailsArr = data.map(function(dataValues){
+                var links = {}
+                 links.userId = dataValues.userId
+                 links.url = dataValues.url;
+                 return links;
+            });
+            
+            return imgDetailsArr;
+            
+        }).then(function(imgDetailsArr){
+            
+            res.render('newsfeed',{imageData:imgDetailsArr});
+        });
+    });
+};
 
-}
+
+

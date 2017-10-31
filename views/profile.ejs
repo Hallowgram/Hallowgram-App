@@ -12,14 +12,14 @@
     <div id="profileImg">
         <img id="picFill" src="" alt="">
     </div>
-    <!-- <%if(imageUrls === undefined) {%>
+     <%if(imageUrls === undefined) {%>
     
        <h1>Upload and Image!!!</h1>
     <% } else{%>
         <% for (var i = 0; i < imageUrls.length; i++ ) { %>
           <p><img src=<%= imageUrls[i]%> class="user-images" alt="Image"></p>
         <% } %>
-    <% } %> -->
+    <% } %>
 
     <!-- multer handles multipart form data so you need to encode the data-->
     <form action="/profile/upload" method="POST" name="uploadForm" accept-charset="utf-8" enctype="multipart/form-data"> 
@@ -39,7 +39,7 @@
     
     <div class="field-shaper">
         <button id="edit-info" type="edit">Edit</button>
-        <button>View Posts</button>
+        <a href="/newsfeed"><button>View Posts</button></a>
     </div>
 
     <script src="../js/profile.js" type="text/javascript" charset="utf-8"></script>

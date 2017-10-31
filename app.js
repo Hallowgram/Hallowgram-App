@@ -64,14 +64,14 @@ app.post("/profile/upload", function(req, res) {
 	
 	
 	photoUpload(req, res, function(err){
-		console.log('this is the file   ', req.file)
+		console.log('this is the body   ', req.user)
 		if(err){
 			return res.send("Error Uploading File!")
 		}
 		models.pics.sync().then(function(){
 			models.pics.create({
-				userId: req.body.userId,
-				url: "../images/uploads/"+req.file.filename,
+				userId: req.user.id,
+				url: "../images/multerUploads/"+req.file.filename,
 	            name: req.body.name,
 	            description: req.body.description
         	});
