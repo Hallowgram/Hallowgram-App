@@ -11,18 +11,11 @@ exports.signin = function(req, res) {
     res.render('login');
  
 }
-exports.profile = function(req, res) {
- 
-    res.render('profile');
- 
-}
-
-
 
 exports.logout = function(req, res) {
  
     req.session.destroy(function(err) {
-        
+        if(err){throw err}
         res.redirect('/');
  
     });

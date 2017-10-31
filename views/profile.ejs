@@ -13,6 +13,14 @@
     <div>
         <img class="logoShaper" src="../images/hallow1.png" alt="HallowGram Logo">
     </div>
+    <%if(imageUrls === undefined) {%>
+    
+       <h1>Upload and Image!!!</h1>
+    <% } else{%>
+        <% for (var i = 0; i < imageUrls.length; i++ ) { %>
+          <p><img src=<%= imageUrls[i]%> class="user-images" alt="Image"></p>
+        <% } %>
+    <% } %>
     <!-- multer handles multipart form data so you need to encode the data-->
     <form action="/profile/upload" method="POST" name="uploadForm" accept-charset="utf-8" enctype="multipart/form-data"> 
         <div class="field-shaper" id="name-info">

@@ -1,6 +1,6 @@
 var authController = require('../controllers/authcontroller.js');
 
-module.exports = function(app, passport) {
+module.exports = function(app, passport, models) {
 
     app.get('/signup', authController.signup);
     app.post('/signup', passport.authenticate('local-signup', {
@@ -48,14 +48,23 @@ module.exports = function(app, passport) {
     // *********************************************************************** 
     function isLoggedIn(req, res, next) {
 
-        if (req.isAuthenticated())
-
+        if (req.isAuthenticated()){
             return next();
+        }
 
         res.redirect('/login');
-
     }
-    app.get('/profile', isLoggedIn, authController.profile);
+    app.get('/profile', isLoggedIn, function(req,res){
+        
+        models.pics.findAll({where: {userId:req.user.id}}).then(function(data){
+            var links = data.map(function(dataValues){
+                return dataValues.url;
+            });
+        
+             res.render('profile',{imageUrls:links});
+            
+        });
+    });
     // ***********************************************************************    
     app.get('/logout', authController.logout);
 

@@ -7,9 +7,10 @@ module.exports = function(sequelize, DataTypes) {
         username: DataTypes.STRING
     });
     User.associate = function(models) {
-        User.hasMany(models.comments);
-        User.hasMany(models.pics);
-
+                User.hasMany(models.comments); 
+                User.hasMany(models.pics); 
+                User.hasMany(models.likes); 
+            
     };
 
     return User;

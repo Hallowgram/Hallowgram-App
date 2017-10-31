@@ -29,7 +29,7 @@ app.use(passport.session()); // persistent login sessions
 // console.log(typeof models.users);
 
 require(__dirname +'/config/passport/passport.js')(passport, models.users);
-require(__dirname+"/routes/auth.js")(app,passport);
+require(__dirname+"/routes/auth.js")(app,passport,models);
 
 models.sequelize.sync().then(function() {
  
@@ -61,18 +61,21 @@ var photoStorage = multer.diskStorage({
 app.post("/profile/upload", function(req, res) {
 	
 	var photoUpload = multer({storage : photoStorage}).single('myFile');
+	
+	
 	photoUpload(req, res, function(err){
-		
+		console.log('this is the file   ', req.file)
 		if(err){
 			return res.send("Error Uploading File!")
 		}
 		models.pics.sync().then(function(){
 			models.pics.create({
 				userId: req.user.id,
-				url: '/static/images/uploads',
+				url: "../images/uploads/"+req.file.filename,
 	            name: req.body.name,
 	            description: req.body.description
         	});
+        	
         	res.redirect('/profile')
 			
 		});
