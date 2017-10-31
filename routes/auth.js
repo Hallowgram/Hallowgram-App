@@ -56,6 +56,9 @@ module.exports = function(app, passport, models) {
         res.redirect('/login');
     }
     app.get('/profile', isLoggedIn, function(req,res){
+
+        // console.log('this is the body   ', req.user)
+        // console.log('this is id ', req.user.id)
         
         models.pics.findAll({where: {userId:req.user.id}}).then(function(data){
             var links = data.map(function(dataValues){
@@ -78,6 +81,7 @@ app.get('/newsfeed', isLoggedIn, function(req,res){
                 console.log('this is my data', dataValues.user)
                 var links = {}
                  links.username = dataValues.user.username
+                 links.picId = dataValues.id;
                  links.url = dataValues.url;
                  return links;
             });
@@ -89,7 +93,14 @@ app.get('/newsfeed', isLoggedIn, function(req,res){
             res.render('newsfeed',{imageData:imgDetailsArr});
         });
     });
+    app.get('/addComment', function(req, res){
+
+        models.pics.find
+
+        res.render('commentview', {pic: data})
+    })
 };
+
 
 
 

@@ -23,8 +23,9 @@ label {
   font-weight: normal !important;
 }
 .user-images{
-    width: 30%;
-    height: 200px;
+  border-radius: 50%;
+  width: 21em;
+  height: 21em;
 }
 .profileBackground {
     position: fixed;
@@ -88,4 +89,8 @@ input[type=file] {
 #myFile {
   width: 14em;
   font-size: 1.3em;
+}
+
+.picFill {
+
 }

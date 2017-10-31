@@ -17,8 +17,8 @@ module.exports = {
           } 
       },
       name: {
-        type: Sequelize.INTEGER,
         allowNull: false,
+        type: Sequelize.STRING
       },
       url: {
         allowNull: false,

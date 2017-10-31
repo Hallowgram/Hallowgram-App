@@ -1,0 +1,42 @@
+body {
+    font-family: witches-magic;
+    text-align: center;
+}
+
+.newsfeedBackground {
+    position: fixed;
+   z-index: -3;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+    background-image: url('../images/newsfeed.png');
+    background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
+}
+
+.imageContainer {
+}
+
+.image-styler {
+	border-style: groove;
+	border-width: 0.5em;
+	border-color: #DF7000;
+}
+
+.u-style {
+	font-size: 2em;
+	font-weight: bold;
+	color: #f5f3ce; 
+	margin-bottom: 1em;
+}
+
+.addComment {
+	font-size: 1.3em;
+	margin-top: 0.4em;
+	margin-bottom: 6em;
+}
+
+
+

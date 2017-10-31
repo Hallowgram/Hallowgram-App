@@ -64,7 +64,6 @@ app.post("/profile/upload", function(req, res) {
 	
 	
 	photoUpload(req, res, function(err){
-		console.log('this is the body   ', req.user)
 		if(err){
 			return res.send("Error Uploading File!")
 		}
@@ -82,12 +81,13 @@ app.post("/profile/upload", function(req, res) {
 	});
 })	
 
+
 app.get('/newsfeed', function(req, res){
 	res.render('newsfeed')
 })
 
 app.get('/addComment', function(req, res){
-	res.render('commentview', {pic: data})
+	res.render('commentview', {pic: data});
 })
 
 app.post('/addComment',function(req, res){

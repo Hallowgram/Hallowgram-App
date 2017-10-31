@@ -1,13 +1,24 @@
 <%- include ./partials/header %>
 <head>
-    <link rel="stylesheet" href="../stylesheets/profile.css">
+    <link rel="stylesheet" href="../stylesheets/newsfeed.css">
 </head>
 
-<%if(imageData !== undefined) {%>
-        <% for (var i = 0; i < imageData.length; i++ ) { %>
-          <p><img src=<%= imageData[i].url%> class="user-images" alt="Image"><span class="username"> Uploaded By User:<%= imageData[i].username%></span></p>
-        <% } %>
-       
-<% } else{%>
-    <h1>Upload and Image!!!</h1>
-<% } %>
+<body>
+	<%if(imageData !== undefined) {%>
+	    <% for (var i = 0; i < imageData.length; i++) { %>
+	          <div class="imageContainer">
+	          	<div class="username u-style"> Uploaded By User:<%= imageData[i].username%></div>
+	          	<img id=<%=imageData[i].picId%> src=<%= imageData[i].url%> class="user-images image-styler" alt="Image">
+	          </div>
+	    <% } %>
+	       
+	<% } else {%>
+	    <h1>Upload and Image!!!</h1>
+	<% } %>
+	
+	<div class="newsfeedBackground"></div>
+
+	<script src="../js/newsfeed.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+>>>>>>> styled newsfeed, fixed migration model for pic, added some js code for profile and newsfeed
