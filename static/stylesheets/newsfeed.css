@@ -23,13 +23,14 @@ body {
 	border-style: groove;
 	border-width: 0.5em;
 	border-color: #DF7000;
+	margin-bottom: 6em;
 }
 
 .u-style {
 	font-size: 2em;
 	font-weight: bold;
 	color: #f5f3ce; 
-	margin-bottom: 1em;
+	margin-bottom: 0.5em;
 }
 
 .addComment {

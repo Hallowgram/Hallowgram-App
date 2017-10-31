@@ -7,7 +7,7 @@
 	<%if(imageData !== undefined) {%>
 	    <% for (var i = 0; i < imageData.length; i++) { %>
 	          <div class="imageContainer">
-	          	<div class="username u-style"> Uploaded By User:<%= imageData[i].username%></div>
+	          	<div class="username u-style"> Uploaded By <%= imageData[i].username%></div>
 	          	<img id=<%=imageData[i].picId%> src=<%= imageData[i].url%> class="user-images image-styler" alt="Image">
 	          </div>
 	    <% } %>
@@ -21,4 +21,3 @@
 	<script src="../js/newsfeed.js" type="text/javascript" charset="utf-8"></script>
 
 </body>
->>>>>>> styled newsfeed, fixed migration model for pic, added some js code for profile and newsfeed
