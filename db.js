@@ -6,7 +6,9 @@ var Sequelize = require("sequelize");
 var env = process.env.NODE_ENV || "development";
 // Load DB config from config file
 
-var config = require(path.join(__dirname, 'config', 'config.js'))[env]; 
+// var config = require(path.join(__dirname, 'config', 'config.js'));
+var config = require('../config/config')[env];
+
 
 // Init sequelize with params from config file
 console.log('Create sequelize...');
