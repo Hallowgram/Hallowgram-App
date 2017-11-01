@@ -91,6 +91,16 @@ input[type=file] {
   font-size: 1.3em;
 }
 
-.picFill {
+#profileImg {
+  display: inline-block;
+}
 
+#picFill {
+  margin-right: 2em;
+  margin-bottom: 2em;
+}
+
+#picFill:hover {
+  transform: scale(1.2);
+  transition: transform .25s ease;
 }

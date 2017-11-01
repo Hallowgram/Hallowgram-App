@@ -6,9 +6,7 @@
 <body>
     <div class="profileBackground"></div>
    
-
-   
-     <% if(imageUrls.length > 0) { %>
+    <% if(imageUrls.length > 0) { %>
         <% for (var i = 0; i < imageUrls.length; i++ ) { %>
           <div id="profileImg">
             <img id="picFill" src=<%= imageUrls[i]%> class="user-images" alt="Image">
@@ -42,5 +40,4 @@
     </div>
 
     <script src="../js/profile.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
