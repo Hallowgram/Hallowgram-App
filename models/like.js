@@ -1,7 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
     var Like = sequelize.define('likes', {
-		firstname: DataTypes.STRING,
-		lastname: DataTypes.STRING
     });
 
     Like.associate = function(models) {

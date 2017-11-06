@@ -5,12 +5,12 @@
 
 <body>
 	<%if(imageData !== undefined) {%>
-	    <% for (var i = 0; i < imageData.length; i++) { %>
-	          <div class="imageContainer">
-	          	<div class="username u-style"> Uploaded By <%= imageData[i].username%></div>
-	          	<img id=<%=imageData[i].picId%> src=<%= imageData[i].url%> class="user-images image-styler items" alt="Image">
-	          </div>
-	    <% } %>
+		<% for (var i = imageData.length - 1; i >= 0; i--) { %>
+			<div class="imageContainer">
+          		<div class="username u-style"> Uploaded By <%= imageData[i].username%></div>
+          		<a href=<%="/addComment/" + imageData[i].id%>><img id=<%=imageData[i].id%> src=<%= imageData[i].url%> class="user-images image-styler items" alt="Image"></a>
+			</div>
+		<% } %>
 	       
 	<% } else {%>
 	    <h1>Upload and Image!!!</h1>

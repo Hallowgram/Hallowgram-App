@@ -78,10 +78,10 @@ app.get('/newsfeed', isLoggedIn, function(req,res){
         models.pics.findAll({include: [{model: models.users}]}).then(function(data){
             
             var imgDetailsArr = data.map(function(dataValues){
-                console.log('this is my data', dataValues.user)
+                // console.log('this is my data', dataValues.user)
                 var links = {}
                  links.username = dataValues.user.username
-                 links.picId = dataValues.id;
+                 links.id = dataValues.id;
                  links.url = dataValues.url;
                  return links;
             });
@@ -93,12 +93,12 @@ app.get('/newsfeed', isLoggedIn, function(req,res){
             res.render('newsfeed',{imageData:imgDetailsArr});
         });
     });
-    app.get('/addComment', function(req, res){
+    // app.get('/addComment', function(req, res){
 
-        models.pics.find
+    //     models.pics.find
 
-        res.render('commentview', {pic: data})
-    })
+    //     res.render('commentview')
+    // })
 };
 
 

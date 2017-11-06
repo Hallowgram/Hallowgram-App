@@ -19,7 +19,7 @@ nav {
 ul {
 	float: none !important;
 	margin: 0 !important;
-	margin-left: 24.3em !important;
+	margin-left: 23.2em !important;
 }
 
 
@@ -64,4 +64,5 @@ a:hover {
 
 .pad-top {
 	padding-top: 1.2em;
+	font-size: 1.3em;
 }

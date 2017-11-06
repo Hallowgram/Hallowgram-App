@@ -4,6 +4,7 @@ var multer = require('multer');
 var app = express();
 var Pic = require(__dirname+"/models/pic");
 var User = require(__dirname+"/models/user");
+var Like = require(__dirname+"/models/like");
 var env = require('dotenv').load();
 var models = require("./db");//gets index.js by default
 
@@ -85,26 +86,91 @@ app.get('/newsfeed', function(req, res){
 	res.render('newsfeed')
 })
 
-app.get('/addComment', function(req, res){
-	res.render('commentview', {pic: data});
+app.post('/addComment/:picId',function(req, res){
+	var userId = req.body.userId;
+	var picId = req.body.picId;
+	models.comments.findAll({
+		where: {
+			userId: userId,
+			picId: picId
+		}
+	}).then(function(rows){
+		models.comments.create({
+			userId: req.body.userId,
+			picId: req.body.picId
+		}).then(function(){
+			console.log('.....COMMENT ROW CREATED......')
+	        res.redirect('/addComment/' + req.body.picId);
+		}).catch(function(err){
+			if(err) {
+				throw err;
+			}
+		})
+
+	})
 })
 
-app.post('/addComment',function(req, res){
-	console.log(req.body)
-	data.comments.push(req.body.newComment);
-	res.redirect('/')
+app.get('/addComment/:picId', function(req, res) {
+	models.pics.sync().then(function(){
+		// console.log(req.params.picId);
+		models.pics.findAll({
+			where: {
+				id: req.params.picId
+			}
+		}).then(function(data){
+	            var links = data.map(function(dataValues){ // put results into array dataValues
+	                return dataValues.url;
+	            });
+	        var picId = data[0].dataValues.id
+	        var userId = data[0].dataValues.userId
+	        res.render('commentview',{imageUrls:links, imageId:picId, userId: userId});
+		})
+		
+	});
 })
+
+
+
 
 app.post('/like',function(req, res){
-	console.log('this is the user',req.body.user);
-	var userindx = data.likedBy.indexOf(req.body.user);
-	if(userindx === -1){
+	var userId = req.body.userId;
+	var picId = req.body.picId;
+	models.likes.findAll({
+		where: {
+			userId: userId,
+			picId: picId
+	}}).then(function(rows){
 
-		data.likedBy.push(req.body.user);
-	}else{
-		data.likedBy.splice(userindx,1);
-	}
+		if(rows.length){
+			models.likes.destroy({
+				where: {
+					userId: req.body.userId,
+					picId: req.body.picId	
+				}}).then(function(){
+					console.log('***Destroyed rows!***');
+			    	res.redirect('/addComment/' + req.body.picId);
+				}).catch(function(err){
+					if(err) {
+						throw err;
+					}
+				})
+		}else{
+			models.likes.create({
+					userId: req.body.userId,
+					picId: req.body.picId
+				}).then(function(){
+					console.log('***Created rows!***')
+			        res.redirect('/addComment/' + req.body.picId);
+				}).catch(function(err){
+					if(err) {
+						throw err;
+					}
+				})
+
+		}
+	})
 })
+
 
 app.get('/', function(req, res){
 	req.session.destroy();
