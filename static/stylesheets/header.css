@@ -3,23 +3,66 @@
 	src: url("../fonts/Witches-Magic.ttf") format("truetype");
 }
 
+
+/* push navbar and content away from each other*/
 .head-push {
 	height: 15em;
 }
+
 body {
 	font-family: witches-magic !important;
 }
 
+
+/* 
+
+Nav Bar CSS 
+
+*/
+
+/* Flex Container */
+.head-container {
+  display: flex;
+  /* flex-flow: column wrap; */
+  justify-content: center;
+}
+
+
+/* Flex Item */
+.items-head {
+  flex-basis: content;
+  margin: auto;
+  /* width: 80%; */
+}
+
+/* .row {
+	margin-left: 0;
+} */
+
+@media (min-width: 1200px){
+.container {
+	width: 0;
+}
+}
+
+@media (min-width: 992px) {
+.container {
+	width: 930px;
+}
+}
+
+@media (max-width: 768px;) {
+.container {
+	width: 600px;
+}
+}
+
+
+
 nav {
     background-color: #FF7000;
     font-size: 1.5em;
-    text-align: center;
-}
-
-ul {
-	float: none !important;
-	margin: 0 !important;
-	margin-left: 23.2em !important;
+    /* text-align: center; */
 }
 
 
@@ -32,37 +75,33 @@ a:hover {
 	color: white;
 }
 
-.nav .navbar .navbar-nav {
-	display: inline-block;
- 	float: none !important;
- 	vertical-align: top;
-}
-
-.row {
-	margin-left: 0 !important;
-}
-
-.logoShaperHeader {
-    border-radius: 50%;
-    height: 4em;
-    padding: 0 2em;
-}
-
-.li-spacer {
-	padding-right: 5em;
-	padding-top: 1em; 
-}
-
-.mylogo:hover {
-	transform: scale(2.4);
-	transition: transform .25s ease;
-}
-
+/* on hover for all li elements in nav --> make it orange */
 .nav > li > a:hover, .nav > li > a:focus { 
-	background-color:#FF7000; 
+	background-color:#FF7000;
+
 }
 
 .pad-top {
 	padding-top: 1.2em;
 	font-size: 1.3em;
+}
+
+
+
+/* 
+
+LOGO CSS 
+
+*/
+
+/* shaping of logo to circular */
+.logoShaperHeader {
+    border-radius: 50%;
+    height: 4em;
+    padding: 0 2em;
+}
+/* nav logo effect */
+.mylogo:hover {
+	transform: scale(2.4);
+	transition: transform .25s ease;
 }

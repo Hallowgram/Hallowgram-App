@@ -23,9 +23,9 @@ body {
 }
 
 .items {
-  flex-basis: content;
   margin: auto;
   width: 50%;
+  flex-basis: content;
 }
 
 .image-styler {

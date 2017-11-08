@@ -5,13 +5,13 @@
 
 <body>
 	<div class="imageContainer">
-		<img src=<%=imageUrls%> id="picture" class="user-images image-styler items" alt="Image" value="<%=userId%>">
+		<img src=<%=imageUrls%> id="picture" class="header-push user-images image-styler items" alt="Image" value="<%=userId%>">
 		<div><%=likeId%></div>
 		<div id="comments">
 			<button id="like-btn" value="<%=imageId%>"><img src="../images/like.jpg" alt="Like Button" class="like-button-sizer"></button>
 			<button id='addComment'>Add Comment</button>
 		</div>
-		<form method="POST" action="/addComment/<%=imageId%>">
+		<form method="POST" action="/addComment/<%=imageId%>" class="footer-push">
 
 			<% for (var i = 0; i < commentId[0].length; i++) { %>
 				<div><%=commentId[0][i].dataValues.text%></div>

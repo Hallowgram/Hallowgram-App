@@ -11,4 +11,6 @@ document.getElementById('like-btn').addEventListener('click', function(e){
 	console.log("payload:", payload);
 	xhr.send(payload);
 	window.location.reload();
+
+	
 })

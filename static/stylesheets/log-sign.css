@@ -49,20 +49,37 @@ button {
 #login-button {
     /*display: block;*/
     float: center;
-    margin-top: 1em;
+    margin-top: 0.5em;
 }
 
-#email-style {
-    margin-left: 2.6em;
-    background-color: black;
-    color: #FF7000;
+@media (max-width: 640px){
+.e-label {
+  margin-left: 0;
+}
+}
+
+@media (min-width: 640px){
+.e-label {
+  margin-left: 1.8em;
+}
+
+.u-label {
+  margin-right: 0.2em;
+}
+
+.ln-label,
+.fn-label {
+  margin-right: 1em;
+}
+
 }
 
 #firstname, 
 #lastname,
 #username-style,
+#email-style,
 #password-style {
-    margin-left: 0.65em;
+    /* margin-left: 0.65em; */
     background-color: black;
     color: #FF7000;
 }

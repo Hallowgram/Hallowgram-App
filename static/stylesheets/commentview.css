@@ -3,6 +3,14 @@ body {
     text-align: center;
 }
 
+.header-push {
+  margin-top: 6em;
+}
+
+.footer-push {
+  margin-bottom: 2em;
+}
+
 .newsfeedBackground {
     position: fixed;
    z-index: -3;
@@ -35,13 +43,6 @@ body {
   margin-bottom: 1em;
 }
 
-/* .u-style {
-  font-size: 2em;
-  font-weight: bold;
-  color: #f5f3ce; 
-  margin-bottom: 0.5em;
-} */
-
 .like-button-sizer {
   height: 2em;
   width: 2em;
@@ -52,7 +53,4 @@ body {
   margin: 0;
   border-width: 0;
 }
-
-
-
 
