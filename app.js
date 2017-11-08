@@ -86,6 +86,59 @@ app.get('/newsfeed', function(req, res){
 	res.render('newsfeed')
 })
 
+
+app.get('/addComment/:picId', function(req, res) {
+	models.pics.sync().then(function(){
+		models.pics.findAll({
+			where: {
+				id: req.params.picId
+			},
+			include: [
+				{
+					model: models.users
+				},
+
+				{
+					model: models.likes
+				},
+
+				{
+					model: models.comments
+				}
+			]
+		}).then(function(data){
+			var links = data.map(function(dataValues){ // put results into array dataValues
+	            return dataValues.url;
+	        });
+
+	        var commentId = data.map(function(datavalues){
+	        	return data[0].dataValues.comments
+	        })
+			var userId = data[0].dataValues.userId;
+			var userName = data[0].dataValues.user.username;
+			var picId = data[0].dataValues.id;
+			var likeId = data[0].dataValues.likes.length;
+			res.render('commentview',{imageUrls:links, imageId:picId, userId: userId, userName: userName, likeId: likeId, commentId: commentId});
+		})
+
+
+		// console.log(req.params.picId);
+		// models.pics.findAll({
+		// 	where: {
+		// 		id: req.params.picId
+		// 	}
+		// }).then(function(data){
+	 //            var links = data.map(function(dataValues){ // put results into array dataValues
+	 //                return dataValues.url;
+	 //            });
+	 //        var picId = data[0].dataValues.id
+	 //        var userId = data[0].dataValues.userId
+	 //        res.render('commentview',{imageUrls:links, imageId:picId, userId: userId});
+		// })
+		
+	});
+})
+
 app.post('/addComment/:picId',function(req, res){
 	var userId = req.body.userId;
 	var picId = req.body.picId;
@@ -96,11 +149,12 @@ app.post('/addComment/:picId',function(req, res){
 		}
 	}).then(function(rows){
 		models.comments.create({
-			userId: req.body.userId,
-			picId: req.body.picId
+			text: req.body.newComment,
+			userId: req.user.id,
+			picId: req.params.picId
 		}).then(function(){
 			console.log('.....COMMENT ROW CREATED......')
-	        res.redirect('/addComment/' + req.body.picId);
+	        res.redirect('/addComment/' + req.params.picId);
 		}).catch(function(err){
 			if(err) {
 				throw err;
@@ -110,30 +164,12 @@ app.post('/addComment/:picId',function(req, res){
 	})
 })
 
-app.get('/addComment/:picId', function(req, res) {
-	models.pics.sync().then(function(){
-		// console.log(req.params.picId);
-		models.pics.findAll({
-			where: {
-				id: req.params.picId
-			}
-		}).then(function(data){
-	            var links = data.map(function(dataValues){ // put results into array dataValues
-	                return dataValues.url;
-	            });
-	        var picId = data[0].dataValues.id
-	        var userId = data[0].dataValues.userId
-	        res.render('commentview',{imageUrls:links, imageId:picId, userId: userId});
-		})
-		
-	});
-})
 
 
 
 
 app.post('/like',function(req, res){
-	var userId = req.body.userId;
+	var userId = req._passport.session.user;
 	var picId = req.body.picId;
 	models.likes.findAll({
 		where: {
@@ -142,32 +178,47 @@ app.post('/like',function(req, res){
 	}}).then(function(rows){
 
 		if(rows.length){
-			models.likes.destroy({
-				where: {
-					userId: req.body.userId,
-					picId: req.body.picId	
-				}}).then(function(){
-					console.log('***Destroyed rows!***');
-			    	res.redirect('/addComment/' + req.body.picId);
-				}).catch(function(err){
-					if(err) {
-						throw err;
-					}
-				})
-		}else{
-			models.likes.create({
-					userId: req.body.userId,
-					picId: req.body.picId
-				}).then(function(){
-					console.log('***Created rows!***')
-			        res.redirect('/addComment/' + req.body.picId);
-				}).catch(function(err){
-					if(err) {
-						throw err;
-					}
-				})
+			// if(userId == rows[0].userId && picId == rows[0].picId){
+				models.likes.destroy({
+					where: {
+						userId: req._passport.session.user,
+						picId: req.body.picId	
+					}}).then(function(){
+						console.log('***Destroyed rows!***');
+				    	res.redirect('/addComment/' + req.body.picId);
+					}).catch(function(err){
+						if(err) {
+							throw err;
+						}
+					})
+			// }else{
+				// models.likes.create({
+				// 		userId: req._passport.session.user,
+				// 		picId: req.body.picId
+				// 	}).then(function(){
+				// 		console.log('***Created rows!***')
+				//         res.redirect('/addComment/' + req.body.picId);
+				// 	}).catch(function(err){
+				// 		if(err) {
+				// 			throw err;
+				// 		}
+				// 	})
 
+			// }
+		} else {
+			models.likes.create({
+						userId: req._passport.session.user,
+						picId: req.body.picId
+					}).then(function(){
+						console.log('***Created rows!***')
+				        res.redirect('/addComment/' + req.body.picId);
+					}).catch(function(err){
+						if(err) {
+							throw err;
+						}
+					})
 		}
+
 	})
 })
 
