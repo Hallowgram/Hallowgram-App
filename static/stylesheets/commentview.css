@@ -42,6 +42,16 @@ body {
   margin-bottom: 0.5em;
 } */
 
+.like-button-sizer {
+  height: 2em;
+  width: 2em;
+}
+
+#like-btn {
+  padding: 0;
+  margin: 0;
+  border-width: 0;
+}
 
 
 

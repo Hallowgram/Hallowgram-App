@@ -6,9 +6,9 @@ document.getElementById('like-btn').addEventListener('click', function(e){
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	var payload = JSON.stringify({
 	    userId: userId,
-	    picId: e.target.value
+	    picId: e.target.parentNode.value
 	});
-	console.log("playload:", payload);
+	console.log("payload:", payload);
 	xhr.send(payload);
 	window.location.reload();
 })

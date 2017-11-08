@@ -8,7 +8,7 @@
 		<img src=<%=imageUrls%> id="picture" class="user-images image-styler items" alt="Image" value="<%=userId%>">
 		<div><%=likeId%></div>
 		<div id="comments">
-			<button id="like-btn" value="<%=imageId%>">Like</button>
+			<button id="like-btn" value="<%=imageId%>"><img src="../images/like.jpg" alt="Like Button" class="like-button-sizer"></button>
 			<button id='addComment'>Add Comment</button>
 		</div>
 		<form method="POST" action="/addComment/<%=imageId%>">
@@ -17,12 +17,11 @@
 				<div><%=commentId[0][i].dataValues.text%></div>
 			<% } %>
 			<input type="text" name="newComment" id='new-comment' placeholder="Please enter a comment"><button id="submit">Submit</button>
-		</form>`;
+		</form>
 	</div>
 
 	<div class="newsfeedBackground"></div>
 	
-	<script type="text/javascript" src="../js/comments.js"></script>
 	<script type="text/javascript" src="../js/like.js"></script>
 
 </body>

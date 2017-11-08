@@ -117,6 +117,7 @@ app.get('/addComment/:picId', function(req, res) {
 			var userId = data[0].dataValues.userId;
 			var userName = data[0].dataValues.user.username;
 			var picId = data[0].dataValues.id;
+			console.log('this is imgId************', picId);
 			var likeId = data[0].dataValues.likes.length;
 			res.render('commentview',{imageUrls:links, imageId:picId, userId: userId, userName: userName, likeId: likeId, commentId: commentId});
 		})
@@ -224,6 +225,7 @@ app.post('/like',function(req, res){
 
 
 app.get('/', function(req, res){
+	console.log("**********Logging Out**********")
 	req.session.destroy();
 	res.render('login');
 })
