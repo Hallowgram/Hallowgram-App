@@ -3,7 +3,7 @@
 var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
-var env = process.env.NODE_ENV || "development";
+var env = process.env.NODE_ENV;
 // Load DB config from config file
 
 var config = require(path.join(__dirname, 'config', 'config.js'))[env]; 
@@ -11,6 +11,8 @@ var config = require(path.join(__dirname, 'config', 'config.js'))[env];
 // Init sequelize with params from config file
 console.log('Create sequelize...');
 var sequelize = {};
+
+console.log(env);
 
 if (env == 'production') {
 	sequelize = new Sequelize(process.env.DATABASE_URL);
