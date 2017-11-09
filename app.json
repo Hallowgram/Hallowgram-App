@@ -1,0 +1,6 @@
+{
+   "name": "HallowGram",
+   "description": "NYCDA PTWDI Instagram Clone",
+   "repository": "https://github.com/Hallowgram/Hallowgram-App",
+   "keywords": ["node", "express", "static"]
+}
