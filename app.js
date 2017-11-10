@@ -1,7 +1,10 @@
+var aws = require('aws-sdk'); //Amazon Web Services (to store photos)
 var express = require('express');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+var multerS3 = require('multer-s3'); // Multer for AWS s3
 var app = express();
+var s3 = new aws.S3({ /* ... */ })
 var Pic = require(__dirname + "/models/pic");
 var User = require(__dirname + "/models/user");
 var Like = require(__dirname + "/models/like");
@@ -42,25 +45,36 @@ models.sequelize.sync().then(function() {
 /* 
 Multer - Upload Storage and File Destination  
 */
-var photoStorage = multer.diskStorage({
+// var localStorage = multer.diskStorage({
 
-    destination: function(request, file, callback) {
-        callback(null, __dirname + "/static/images/multerUploads");
+//     destination: function(request, file, callback) {
+//         callback(null, __dirname + "/static/images/multerUploads");
 
-    },
-    filename: function(req, file, callback) {
-        callback(null, Date.now() + file.originalname);
+//     },
+//     filename: function(req, file, callback) {
+//         callback(null, Date.now() + file.originalname);
 
-    }
-});
+//     }
+// });
+
+var uploadAWS = multer({ 
+    storage: multerS3({
+        s3: s3,
+        bucket: 'hallowgram',
+        metadata: function (req, file, cb) {
+            cb(null, {fileName: file.originalname});
+        },
+        key: function (req, file, cb) {
+            cb(null, Date.now().toString())
+        }
+    }) 
+}).single('myFile');
+
+app.post("/profile/upload", function(req, res, next) {
 
 
-app.post("/profile/upload", function(req, res) {
 
-    var photoUpload = multer({ storage: photoStorage }).single('myFile');
-
-
-    photoUpload(req, res, function(err) {
+    uploadAWS(req, res, function(err) {
         if (err) {
             return res.send("Error Uploading File!")
         }
@@ -72,6 +86,7 @@ app.post("/profile/upload", function(req, res) {
                 description: req.body.description
             });
 
+            console.log('Successfully uploaded ' + req.file.filename);
             res.redirect('/profile')
 
         });

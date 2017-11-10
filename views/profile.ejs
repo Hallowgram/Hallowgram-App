@@ -1,12 +1,12 @@
 <%- include ./partials/header %>
 <head>
-    <link href="http://s3.amazonaws.com/bucketname/filename">
     <link rel="stylesheet" href="../stylesheets/profile.css">
 </head>
 
 <body>
     <div class="profileBackground"></div>
-   
+    
+    <%console.log(imageUrls);%>
     <% if(imageUrls.length > 0) { %>
         <% for (var i = 0; i < imageUrls.length; i++ ) { %>
           <div id="profileImg">
