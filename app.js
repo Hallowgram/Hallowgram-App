@@ -45,36 +45,40 @@ models.sequelize.sync().then(function() {
 /* 
 Multer - Upload Storage and File Destination  
 */
-// var localStorage = multer.diskStorage({
+var localStorage = multer.diskStorage({
 
-//     destination: function(request, file, callback) {
-//         callback(null, __dirname + "/static/images/multerUploads");
+    destination: function(request, file, callback) {
+        callback(null, __dirname + "/static/images/multerUploads");
 
-//     },
-//     filename: function(req, file, callback) {
-//         callback(null, Date.now() + file.originalname);
+    },
+    filename: function(req, file, callback) {
+        callback(null, Date.now() + file.originalname);
 
-//     }
-// });
+    }
+})
 
 var uploadAWS = multer({ 
     storage: multerS3({
         s3: s3,
         bucket: 'hallowgram',
         metadata: function (req, file, cb) {
-            cb(null, {fileName: file.fieldname});
+            cb(null, {fieldname: file.fieldname});
         },
         key: function (req, file, cb) {
             cb(null, Date.now().toString())
         }
     }) 
-}).single('myFile');
+})
 
 app.post("/profile/upload", function(req, res, next) {
 
+    if (env.NODE_ENV == 'production'){
+        var upload = multer({storage : uploadAWS}).single('myFile');
+    } else {
+        var upload = multer({storage : localStorage}).single('myFile');
+    }
 
-
-    uploadAWS(req, res, function(err) {
+    upload(req, res, function(err) {
         if (err) {
             return res.send("Error Uploading File!")
         }
@@ -91,6 +95,7 @@ app.post("/profile/upload", function(req, res, next) {
 
         });
     });
+
 })
 
 
