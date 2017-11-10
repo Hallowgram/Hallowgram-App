@@ -9,6 +9,7 @@ var Pic = require(__dirname + "/models/pic");
 var User = require(__dirname + "/models/user");
 var Like = require(__dirname + "/models/like");
 var env = require('dotenv').load();
+var envNode = process.env.NODE_ENV;
 var models = require("./db"); //gets index.js by default
 
 var passport = require('passport')
@@ -71,6 +72,7 @@ var uploadAWS = multer({
 })
 
 app.post("/profile/upload", function(req, res, next) {
+    console.log('this is node env!!!!!!!', envNode)
 
     if (env.NODE_ENV == 'production'){
         var upload = multer({storage : uploadAWS}).single('myFile');
