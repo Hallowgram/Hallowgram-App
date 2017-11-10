@@ -62,7 +62,7 @@ var uploadAWS = multer({
         s3: s3,
         bucket: 'hallowgram',
         metadata: function (req, file, cb) {
-            cb(null, {fileName: file.originalname});
+            cb(null, {fileName: file.fieldname});
         },
         key: function (req, file, cb) {
             cb(null, Date.now().toString())
