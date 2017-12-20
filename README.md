@@ -1,20 +1,3 @@
-<style>
-	#link {
-		margin-bottom: 1em;
-		margin-top: 1em;
-	}
-
-	#hallowImage {
-		border-radius: 25px;
-		overflow: hidden;
-	}
-
-	#hallowLogo {
-		border-radius: 25px;
-		overflow: hidden;
-	}
-</style>
-
 <img src="static/images/hallow2.png" id="hallowLogo" align="right" alt="Hallowgram Logo" width="200" height="200" />
 
 # Hallowgram
@@ -33,7 +16,7 @@ $ node app.js
 ## Deployment
 
 
-<div id="link" align="center">
+<div id="link" align="left">
 	<a href="hallowgram.herokuapp.com">Hallowgram</a>
 </div>
 
@@ -47,6 +30,9 @@ $ node app.js
 <img src="static/images/nodejs.png" align= "center" width="200" height="100" /> <br><br>
 * [Node](https://nodejs.org/en/) is a multi-platform, open-source JavaScript run-time environment that executes code on the server-side.
 <br><br>
+
+## Contribute
+* Contributions are always welcome! Please read the [contribution guidelines](CONTRIBUTING.md) first.
 
 ## Credits
 
