@@ -1,4 +1,4 @@
-<img src="static/images/hallow2.png" id="hallowLogo" align="right" alt="Hallowgram Logo" width="200" height="200" />
+<img src="static/images/hallow2.png" align="right" alt="Hallowgram Logo" width="200" height="200" />
 
 # Hallowgram
 
@@ -15,19 +15,16 @@ $ node app.js
 
 ## Deployment
 
-
-<div id="link" align="left">
-	<a href="hallowgram.herokuapp.com">Hallowgram</a>
-</div>
+* hallowgram.herokuapp.com
 
 <p align="center">
-	<img src= "static/images/HallowGram.png" id="hallowImage" width="600" height="600" align="center" />
+	<img src= "static/images/HallowGram.png" width="600" height="600" align="center" />
 </p>
 
 
 ## Technology Used
 
-<img src="static/images/nodejs.png" align= "center" width="200" height="100" /> <br><br>
+<img src="static/images/nodejs.png" align= "center" width="150" height="50" /> <br><br>
 * [Node](https://nodejs.org/en/) is a multi-platform, open-source JavaScript run-time environment that executes code on the server-side.
 <br><br>
 
