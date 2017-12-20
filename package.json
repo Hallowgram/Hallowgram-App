@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/Hallowgram/Hallowgram-App#readme",
   "dependencies": {
-    "aws-sdk": "^2.149.0",
+    "aws-sdk": "^2.171.0",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
@@ -27,9 +27,9 @@
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.1",
     "passport-local": "^1.0.0",
-    "pg": "^7.3.0",
-    "sequelize": "^4.19.0",
-    "sequelize-cli": "^3.0.0"
+    "pg": "^7.4.0",
+    "sequelize": "^4.28.6",
+    "sequelize-cli": "^3.2.0"
   },
   "repository": {
     "type": "git",
@@ -43,5 +43,9 @@
     "node",
     "heroku",
     "express"
-  ]
+  ],
+  "devDependencies": {
+    "electron-rebuild": "^1.6.0",
+    "eslint-config-rallycoding": "^3.2.0"
+  }
 }
