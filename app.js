@@ -57,61 +57,40 @@ let localStorage = multer.diskStorage({
 Multer S3 - Upload Storage and File Destination
 */
 
-let uploadAWS = function (req, res) {
-    let item = req.body;
-    console.log('this is item********: ', item);
+let uploadAWS = multer({
     storage: multerS3({
         s3: s3,
-        bucket: item.hallowgram,
+        bucket: "hallowgram",
         metadata: function (req, file, cb) {
             cb(null, { fieldName: file.fieldname });
         },
         key: function (req, file, cb) {
             cb(null, Date.now().toString());
         }
-    });
-};
-// let uploadAWS = multer({
-//     storage: multerS3({
-//         s3: s3,
-//         bucket: 'hallowgram',
-//         metadata: function (req, file, cb) {
-//             cb(null, {fieldname: file.fieldname});
-//         },
-//         key: function (req, file, cb) {
-//             cb(null, Date.now().toString())
-//         }
-//     })
-// })
+    }),
+});
 
-app.post('/profile/upload', function (req, res) {
+app.post('/profile/upload', uploadAWS.single('myFile'),
+     function (req, res) {
     console.log('this is node env!!!!!!!', envNode);
-    // console.log('this is AWS**************', uploadAWS)
 
-    // if (env.NODE_ENV == 'production'){
-    let upload = multer({storage : localStorage}).single('myFile');
-    // } else {
-        // let upload = multer({storage : localStorage}).single('myFile');
-    // }
-
-    upload(req, res, function(err) {
-        if (err) {
-            return res.send('Error Uploading File!');
-        }
-        models.pics.sync().then(function () {
+    return models.pics.sync()
+            .then(function () {
             models.pics.create({
                 userId: req.user.id,
-                url: 'https://s3.us-east-2.amazonaws.com/hallowgram/',
+                url: req.file.location,
                 name: req.body.name,
                 description: req.body.description
             });
 
             console.log('Successfully uploaded ' + req.file.filename);
             res.redirect('/profile');
-        });
-    });
+        })
+            .catch(function(err) {
+                console.log(err);
+                res.status(500).end();
+            });
 });
-
 
 app.get('/newsfeed', function (req, res) {
     res.render('newsfeed');

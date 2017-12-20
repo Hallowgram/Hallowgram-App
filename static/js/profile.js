@@ -20,7 +20,7 @@ form.addEventListener('submit', function(event){
 			console.log('request granted!')
 
 		} else {
-			console.log('access to server denied!') 
+			console.log('access to server denied!')
 		}
 	};
 
