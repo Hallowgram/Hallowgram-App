@@ -18,7 +18,7 @@ $ node app.js
 hallowgram.herokuapp.com
 
 <p style="text-align: center;">
-	<img src= "static/images/HallowGram.png" width="900" border-radius="25px">
+	<img src= "static/images/HallowGram.png" width=900 border-radius=25px>
 </p>
 
 
