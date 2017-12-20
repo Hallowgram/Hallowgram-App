@@ -1,4 +1,4 @@
-<img src="static/images/HallowGram.png" align="right" alt="Hallowgram Logo" width="200" height="200" />
+<img src="static/images/HallowGram.png" align="right" alt="Hallowgram Logo" width="200" height="200" overflow="hidden" />
 
 # Hallowgram
 
@@ -20,7 +20,7 @@ $ node app.js
 
 ## Technology Used
 
-<img src="static/images/nodejs.png" align= "center" width="150" height="80" /> <br><br>
+<img src="static/images/nodejs.png" align="center" width="150" height="80" /> <br><br>
 * [Node](https://nodejs.org/en/) is a multi-platform, open-source JavaScript run-time environment that executes code on the server-side.
 <br><br>
 
