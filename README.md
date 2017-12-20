@@ -6,10 +6,12 @@
 
 	#hallowImage {
 		border-radius: 25px;
+		overflow: hidden;
 	}
 
 	#hallowLogo {
 		border-radius: 25px;
+		overflow: hidden;
 	}
 </style>
 
