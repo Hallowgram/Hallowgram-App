@@ -15,7 +15,9 @@ $ node app.js
 
 ## Deployment
 
-<a href="hallowgram.herokuapp.com">Hallowgram</a>
+<div align="center">
+	<a href="hallowgram.herokuapp.com">Hallowgram</a>
+</div>
 
 <p align="center">
 	<img src= "static/images/HallowGram.png" width="600" height="600" align="center" style="border-radius: 25px;" />
