@@ -14,12 +14,11 @@ $ node app.js
 ```
 
 ## Deployment
-<div text-align="center">
-	hallowgram.herokuapp.com
-</div>
 
-<p text-align="center">
-	<img src= "static/images/HallowGram.png" width="600" height="600" border-radius="25" align="center" />
+<a href="hallowgram.herokuapp.com">Hallowgram</a>
+
+<p align="center">
+	<img src= "static/images/HallowGram.png" width="600" height="600" align="center" style="border-radius: 25px;" />
 </p>
 
 
