@@ -15,7 +15,7 @@ $ node app.js
 
 ## Deployment
 
-<div align="center" margin-bottom="30" margin-top="30" >
+<div align="center" style="margin-bottom: 2em; margin-top: 2em;" >
 	<a href="hallowgram.herokuapp.com">Hallowgram</a>
 </div>
 
@@ -26,7 +26,7 @@ $ node app.js
 
 ## Technology Used
 
-<img src="static/images/nodejs.png" align= "center" width="400" height="400" /> <br><br>
+<img src="static/images/nodejs.png" align= "center" width="400" height="300" /> <br><br>
 * [Node](https://nodejs.org/en/) is a multi-platform, open-source JavaScript run-time environment that executes code on the server-side.
 <br><br>
 
