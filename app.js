@@ -57,7 +57,7 @@ let localStorage = multer.diskStorage({
 Multer S3 - Upload Storage and File Destination
 */
 
-let upload = function (req, res) {
+let uploadAWS = function (req, res) {
     let item = req.body;
     console.log('this is item********: ', item);
     storage: multerS3({
@@ -89,7 +89,7 @@ app.post('/profile/upload', function (req, res) {
     // console.log('this is AWS**************', uploadAWS)
 
     // if (env.NODE_ENV == 'production'){
-    let upload = multer({storage : uploadAWS}).single('myFile');
+    let upload = multer({storage : localStorage}).single('myFile');
     // } else {
         // let upload = multer({storage : localStorage}).single('myFile');
     // }
