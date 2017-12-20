@@ -1,4 +1,4 @@
-<style type="text/css" media="screen">
+<style>
 	#link {
 		margin-bottom: 1em;
 		margin-top: 1em;
