@@ -1,4 +1,4 @@
-<img src="static/images/hallow2.png" align="right" alt="Hallowgram Logo" width="400" height="400" />
+<img src="static/images/hallow2.png" align="right" alt="Hallowgram Logo" width="200" height="200" />
 
 # Hallowgram
 
@@ -18,7 +18,7 @@ $ node app.js
 hallowgram.herokuapp.com
 
 <p style="text-align: center;">
-	<img src= "static/images/HallowGram.png" width="400" height="400" border-radius="25">
+	<img src= "static/images/HallowGram.png" width="600" height="600" border-radius="25" align="center" >
 </p>
 
 
