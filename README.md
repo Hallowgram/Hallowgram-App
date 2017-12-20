@@ -1,4 +1,4 @@
-<img src="static/images/hallow2.png" align="right" alt="Hallowgram Logo" width="200" height="200" />
+<img src="static/images/HallowGram.png" align="right" alt="Hallowgram Logo" width="200" height="200" />
 
 # Hallowgram
 
@@ -16,10 +16,6 @@ $ node app.js
 ## Deployment
 
 [hallowgram.herokuapp.com](hallowgram.herokuapp.com)
-
-<p align="left">
-	<img src= "static/images/HallowGram.png" width="400" height="400" align="center" />
-</p>
 
 
 ## Technology Used
