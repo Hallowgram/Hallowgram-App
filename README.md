@@ -146,13 +146,11 @@ $ node app.js
 | `description`         | Description to be associated to the photo being posted.                                     |
 | `tag`                 | Tag to be associated to the photo being posted, based on a specified topic
 
-                 
-
 ## Project Organization
 
 ```
 
-├── app.js                    #
+├── app.js                    # Main entry point of the app
 ├── db.js 					  #
 ├── config                    #
 │   ├── passport              #
@@ -160,23 +158,23 @@ $ node app.js
 │   └── config.js             #
 ├── controllers               #
 │	    └── authcontroller.js #
-├── migrations                #
+├── migrations                # Where all of the database migrations live
 │		├── a-user-model.js   #
 │		├── b-pic-model.js.   #
 │		├── comments-model.js #
 │		└── likes.js 		  #
-├── models                    #
+├── models                    # Where all of the Sequelize models live
 │	  ├── comment.js          #
 │	  ├── like.js.     		  #
 │	  ├── pic.js   			  #
 │	  └── user.js 		      #
 ├── routes                    #
 │     ├── auth.js   		  #
-├── static                    #
+├── static                    # Where public-access static files live
 │    ├── fonts                #
-│    ├── images         	  #
+│    ├── images         	  # Where all stock site images and uploaded files live
 │	 ├── js					  #
-│	 ├── stylesheets		  #
+│	 ├── stylesheets		  # Where site styles live
 ├── views					  #
 │     ├── partials            #
 │	  │		└── header.ejs    #
