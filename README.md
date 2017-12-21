@@ -24,7 +24,7 @@ $ node app.js
 * [Amazon S3](https://aws.amazon.com/s3/) is object storage built to store and retrieve any amount of data from anywhere.
 <br><br>
 
-<img src="static/images/ejs.png" align="center" width="220" height="130" /> <br><br>
+<img src="static/images/ejs.png" align="center" width="240" height="130" /> <br><br>
 * [EJS](http://ejs.co/) is a simple templating language that lets you generate HTML markup with plain JavaScript.
 <br><br>
 
@@ -36,7 +36,7 @@ $ node app.js
 * [Node](https://nodejs.org/en/) is a multi-platform, open-source JavaScript run-time environment that executes code on the server-side.
 <br><br>
 
-<img src="static/images/postgres.png" align="center" width="180" height="110" /> <br><br>
+<img src="static/images/postgres.png" align="center" width="200" height="130" /> <br><br>
 * [PostgreSQL](https://www.postgresql.org/) is a powerful, open source object-relational database system.
 <br><br>
 
