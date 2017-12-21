@@ -151,38 +151,38 @@ $ node app.js
 ```
 
 ├── app.js                    # Main entry point of the app
-├── db.js 					          #
+├── db.js 					  #
 ├── config                    #
 │   ├── passport              #
-│	│		└── passport.js         #
+│	│		└── passport.js   #
 │   └── config.js             #
 ├── controllers               #
-│	    └── authcontroller.js   #
+│	    └── authcontroller.js #
 ├── migrations                # Where all of the database migrations live
-│		├── a-user-model.js       #
-│		├── b-pic-model.js.       #
-│		├── comments-model.js     #
-│		└── likes.js 		          #
+│		├── a-user-model.js   #
+│		├── b-pic-model.js.   #
+│		├── comments-model.js #
+│		└── likes.js 		  #
 ├── models                    # Where all of the Sequelize models live
-│	  ├── comment.js            #
-│	  ├── like.js.     		      #
-│	  ├── pic.js   			        #
-│	  └── user.js 		          #
+│	  ├── comment.js          #
+│	  ├── like.js.     		  #
+│	  ├── pic.js   			  #
+│	  └── user.js 		      #
 ├── routes                    #
-│     ├── auth.js   		      #
+│     ├── auth.js   		  #
 ├── static                    # Where public-access static files live
 │    ├── fonts                #
-│    ├── images         	    # Where all stock site images and uploaded files live
-│	 ├── js					            #
-│	 ├── stylesheets		        # Where site styles live
-├── views					            #
+│    ├── images         	  # Where all stock site images and uploaded files live
+│	 ├── js					  #
+│	 ├── stylesheets		  # Where site styles live
+├── views					  #
 │     ├── partials            #
-│	  │		└── header.ejs        #
+│	  │		└── header.ejs    #
 │     ├── commentview.ejs 	  #
-│	  ├── login.ejs 		        #
-│	  ├── newsfeed.ejs 		      #
-│	  ├── profile.ejs 		      #
-│	  ├── sign-up.ejs 		      #
+│	  ├── login.ejs 		  #
+│	  ├── newsfeed.ejs 		  #
+│	  ├── profile.ejs 		  #
+│	  ├── sign-up.ejs 		  #
 │
 
 ```
