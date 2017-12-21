@@ -32,11 +32,14 @@ $ node app.js
 * [Express](https://expressjs.com/) is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 <br><br>
 
+* [Multer](https://www.npmjs.com/package/multer) is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files.
+<br><br>
+
 <img src="static/images/nodejs.png" align="center" width="190" height="120" /> <br><br>
 * [Node](https://nodejs.org/en/) is a multi-platform, open-source JavaScript run-time environment that executes code on the server-side.
 <br><br>
 
-<img src="static/images/postgres.png" align="center" width="200" height="130" /> <br><br>
+<img src="static/images/postgres.png" align="center" width="200" height="120" /> <br><br>
 * [PostgreSQL](https://www.postgresql.org/) is a powerful, open source object-relational database system.
 <br><br>
 
