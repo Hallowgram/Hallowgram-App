@@ -34,8 +34,11 @@ $ node app.js
 
 <hr>
 
+<br>
 * [Multer](https://www.npmjs.com/package/multer) is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files.
 <br><br>
+
+<hr>
 
 <img src="static/images/nodejs.png" align="center" width="190" height="120" /> <br><br>
 * [Node](https://nodejs.org/en/) is a multi-platform, open-source JavaScript run-time environment that executes code on the server-side.
