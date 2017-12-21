@@ -3,3 +3,5 @@ config/config.js
 .DS_Store
 .eslintrc
 static/.DS_Store
+bin
+seeders

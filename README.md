@@ -144,25 +144,49 @@ $ node app.js
 |-----------------------|---------------------------------------------------------------------------------------------|
 | `photo`               | Photo to be posted to the application by the user                                           |
 | `description`         | Description to be associated to the photo being posted.                                     |
-| `tag`                 | Tag to be associated to the photo being posted, based on a specified topic                  |
+| `tag`                 | Tag to be associated to the photo being posted, based on a specified topic
+
+                 
 
 ## Project Organization
 
 ```
-.
-├── app.js                    # Main entry point of the app
-├── assets                    # Where public-access static files live
-│   ├── css                   # Where site styles live
-│   └── images                # Where user uploaded files live
-├── middleware                # Where all reusable middleware live
-├── models                    # Where all of the Sequelize models live   
-├── Routes                    # Where router files live
-├── util                      # Common use functionality lives here
-│   ├── renderTemplate.js     # Helper function for rendering template.ejs
-│   └── sql.js                # Sequelize instance and configuration
-├── views                     # EJS files for rendering live here
-│    └── pages                # Where each individual page is kept
-│    └── template.ejs         # Main template file
+
+├── app.js                    #
+├── db.js 					  #
+├── config                    #
+│   ├── passport              #
+│	│		└── passport.js   #
+│   └── config.js             #
+├── controllers               #
+│	    └── authcontroller.js #
+├── migrations                #
+│		├── a-user-model.js   #
+│		├── b-pic-model.js.   #
+│		├── comments-model.js #
+│		└── likes.js 		  #
+├── models                    #
+│	  ├── comment.js          #
+│	  ├── like.js.     		  #
+│	  ├── pic.js   			  #
+│	  └── user.js 		      #
+├── routes                    #
+│     ├── auth.js   		  #
+├── static                    #
+│    ├── fonts                #
+│    ├── images         	  #
+│	 ├── js					  #
+│	 ├── stylesheets		  #
+├── views					  #
+│     ├── partials            #
+│	  │		└── header.ejs    #
+│     ├── commentview.ejs 	  #
+│	  ├── login.ejs 		  #
+│	  ├── newsfeed.ejs 		  #
+│	  ├── profile.ejs 		  #
+│	  ├── sign-up.ejs 		  #
+│
+
 ```
 
 
