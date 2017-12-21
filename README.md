@@ -32,6 +32,8 @@ $ node app.js
 * [Express](https://expressjs.com/) is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 <br><br>
 
+<hr>
+
 * [Multer](https://www.npmjs.com/package/multer) is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files.
 <br><br>
 
