@@ -25,179 +25,83 @@ $ node app.js
 | Column                | Type                	          |
 |-----------------------|---------------------------------|
 |`id`                   | INTEGER (PRIMARY KEY)           |
-|`username`             | STRING(100) (NOT NULL)(UNIQUE)  |
-|`password`             | STRING(1000) (NOT NULL)         |
+|`email`             	| STRING (NOT NULL) (UNIQUE)      |
+|`password`             | STRING (NOT NULL)               |
+|`firstname`            | STRING (NOT NULL)               |
+|`lastname`             | STRING (NOT NULL)               |
+|`username`             | STRING (NOT NULL)               |
 
 * ONE to MANY relationship with photos
 * ONE to MANY relationship comments
+* ONE to MANY relationship likes
 
 ### 'pics'
 
-| Column                | Type                      |
-|-----------------------|---------------------------|
-|`id`                   | INTEGER (PRIMARY KEY)     |
-|`size`                	| INTEGER (NOT NULL)        |
-|`originalName`         | STRING (NOT NULL)         |
-|`mimeType`             | STRING (NOT NULL)         |
-|`description`          | STRING (500)              |
+| Column                | Type                            |
+|-----------------------|---------------------------------|
+|`id`                   | INTEGER (PRIMARY KEY)           |
+|`url`                	| INTEGER (NOT NULL)              |
+|`name`         		| STRING (NOT NULL)               |
+|`description`          | STRING                          |
+|`userId`          		| INTEGER (FOREIGN KEY)           |
 
-* ONE to MANY relationship with photos comments
-* MANY to MANY relationship with tags
-* ONE to MANY relationship with photoLikes
+* ONE to MANY relationship with comments
+* ONE to MANY relationship with likes
 * MANY to ONE relationship with users
 
 ### 'comments'
 
-| Column                | Type                   |
-|-----------------------|------------------------|
-|`id`                   | INTEGER (PRIMARY KEY)  |
-|`text`                 | STRING (NOT NULL)(250) |
+| Column                | Type                            |
+|-----------------------|---------------------------------|
+|`id`                   | INTEGER (PRIMARY KEY)           |
+|`text`                 | STRING (NOT NULL)               |
+|`userID`               | INTEGER (FOREIGN KEY)           |
+|`picID`                | INTEGER (FOREIGN KEY)           |
 
 * MANY to ONE relationship with photos
 * MANY to ONE relationship with user
-* ONE to MANY relationship with commentLikes
 
+### 'likes'
 
-### 'Likes'
+| Column                | Type                            |
+|-----------------------|---------------------------------|
+|`id`                   | INTEGER (PRIMARY KEY)           |
+|`userId`               | INTEGER (FOREIGN KEY)           |
+|`picId`                | INTEGER (FOREIGN KEY).          |
 
-| Column                | Type                                |
-|-----------------------|-------------------------------------|
-|`id`                   | INTEGER (PRIMARY KEY)(AUTOINCREMENT)|
+* MANY to ONE relationship with users
+* MANY to ONE relationship with pics
 
-* MANY to ONE relationship with photos
-
-
-## Routes
-
-### GET `/`
-
-| Argument              | Description                                                                                 |
-|-----------------------|---------------------------------------------------------------------------------------------|
-| `No argument`         | No argument                                                                                 |
-
-* If logged in, displays a page with other users photos to like or comment on, in addition to tags which relate to the photo
-* If no user is logged in, redirects to login page
-
-
-### POST `/`
-
-| Argument              | Description                                                                                 |
-|-----------------------|---------------------------------------------------------------------------------------------|
-| `comment`             | Text input for a user to enter in comments about a photo                                    |
-| `photoLike`           | Indicator of a photo being liked by another user                                            |
-| `commentLike`         | Indicator of a photo being liked by another user                                            |
-
-* Endpoint for submitting a comment, "like" on a photo, or "like" on a comment of a photo
-
-### GET `/login`
-
-| Argument              | Description                                                                                 |
-|-----------------------|---------------------------------------------------------------------------------------------|
-| `No argument`         | No argument                                                                                 |
-
-* Displays a login form which has fields to verify a username and password
-* Upon success, redirects 'to photomatic'
-* Provides a link to signup page if user does not have an account
-
-
-### POST `user/login`
-
-| Argument              | Description                                                                                 |
-|-----------------------|---------------------------------------------------------------------------------------------|
-| `username`            | Username input to verify account                                                            |
-| `password`            | Password input to verify account                                                            |
-
-* Endpoint for submitting an account creation post form
-* Upon success, redirects to `/user`
-
-### GET `user/signup`
-
-| Argument              | Description                                                                                 |
-|-----------------------|---------------------------------------------------------------------------------------------|
-| `No argument`         | No argument                                                                                 |
-
-* Displays a page with a signup form for creating an account with a username and password.
-
-### POST `/user/signup`
-
-| Argument              | Description                                                                                 |
-|-----------------------|---------------------------------------------------------------------------------------------|
-| `username`            | User name created to assign to account.                                                     |
-| `password`            | Password created to sign into acount.                                                       |
-
-* Endpoint for submitting an account creation post form
-* Upon success, redirects to `/`
-
-
-### GET `/user`
-
-| Argument              | Description                                                                                 |
-|-----------------------|---------------------------------------------------------------------------------------------|
-| `user`         	| Specifies which user is being displayed based on the user logged into the session           |
-
-* Displays a page with a user and the photos which they have submitted
-* If the user isn't logged into a session, redirects back to 'user/login'
-
-### POST `/user/post`
-
-| Argument              | Description                                                                                 |
-|-----------------------|---------------------------------------------------------------------------------------------|
-| `photo`               | Photo to be posted to the application by the user                                           |
-| `description`         | Description to be associated to the photo being posted.                                     |
-| `tag`                 | Tag to be associated to the photo being posted, based on a specified topic
 
 ## Project Organization
 
 ```
 
 ├── app.js                    # Main entry point of the app
-├── db.js 					  #
-├── config                    #
-│   ├── passport              #
-│	│		└── passport.js   #
-│   └── config.js             #
-├── controllers               #
-│	    └── authcontroller.js #
+├── db.js 					  # Where database configuration is handled for database models
+├── config                    # Where application configuration lives
+│   ├── passport              ## Where Passport.js authentication lives
+│   └── config.js             ## Development configuration lives here
+├── controllers               # Where application controllers live
 ├── migrations                # Where all of the database migrations live
-│		├── a-user-model.js   #
-│		├── b-pic-model.js.   #
-│		├── comments-model.js #
-│		└── likes.js 		  #
 ├── models                    # Where all of the Sequelize models live
-│	  ├── comment.js          #
-│	  ├── like.js.     		  #
-│	  ├── pic.js   			  #
-│	  └── user.js 		      #
-├── routes                    #
-│     ├── auth.js   		  #
+├── routes                    # Where router files live
 ├── static                    # Where public-access static files live
-│    ├── fonts                #
-│    ├── images         	  # Where all stock site images and uploaded files live
-│	 ├── js					  #
-│	 ├── stylesheets		  # Where site styles live
-├── views					  #
-│     ├── partials            #
-│	  │		└── header.ejs    #
-│     ├── commentview.ejs 	  #
-│	  ├── login.ejs 		  #
-│	  ├── newsfeed.ejs 		  #
-│	  ├── profile.ejs 		  #
-│	  ├── sign-up.ejs 		  #
+│    ├── fonts                ## Fonts(eot|otf|ttf|woff|woff2)
+│    ├── images         	  ## Where all stock and uploaded images live
+│	 ├── js					  ## Front End Javascript functionality 
+│	 ├── stylesheets		  ## Where site styles live
+├── views					  # EJS files for rendering live 
+│     ├── partials            ## EJS partial files
 │
 
 ```
-
-
 
 
 ## Technology Used
 
 <img src="static/images/awss3.png" align="center" width="200" height="150" /> <br><br>
 * [Amazon S3](https://aws.amazon.com/s3/) is object storage built to store and retrieve any amount of data from anywhere.
-<br><br>
-
-<img src="static/images/ejs.png" align="center" width="240" height="130" /> <br><br>
-* [EJS](http://ejs.co/) is a simple templating language that lets you generate HTML markup with plain JavaScript.
 <br><br>
 
 <img src="static/images/express.png" align="center" width="210" height="100" /> <br><br>
@@ -232,3 +136,6 @@ $ node app.js
 
 Michael Haviv (contributor)
 Jeiner Noriega (contributor)
+
+## License
+* This frontend web application is available under the [MIT License](https://github.com/mhaviv/Hallowgram/Hallowgram-App/blob/master/LICENSE.md).

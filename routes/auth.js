@@ -61,7 +61,7 @@ module.exports = function(app, passport, models) {
             var links = data.map(function(dataValues){
                 return dataValues.url;
             });
-
+                
              res.render('profile',{imageUrls:links});
 
         });
