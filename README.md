@@ -2,7 +2,7 @@
 [![GitHub top language](https://img.shields.io/github/languages/top/Hallowgram/Hallowgram-App.svg?colorB=EFDF70&style=plastic)](https://github.com/Hallowgram/Hallowgram-App)
 [![GitHub issues](https://img.shields.io/github/issues/Hallowgram/Hallowgram-App.svg?&colorB=ff0000&style=plastic)](https://github.com/Hallowgram/Hallowgram-App/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/Hallowgram/Hallowgram-App.svg?colorB=1FBF14&style=plastic)](https://github.com/Hallowgram/Hallowgram-App/pulls)
-[![License (3-Clause BSD)](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg?style=plastic)](http://opensource.org/licenses/BSD-3-Clause)
+[![License (MIT)](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)](https://opensource.org/licenses/MIT)
 
 <img src="static/images/HallowGram.png" align="right" alt="Hallowgram Logo" width="200" height="200" overflow="hidden" />
 
@@ -23,7 +23,7 @@ $ node app.js
 
 [hallowgram.herokuapp.com](hallowgram.herokuapp.com)
 
-<img src="http://gph.to/2CcfxnC" width="600" />
+<iframe src="https://giphy.com/embed/3ohjV8gHjRALwZNDi0" width="480" height="238" frameBorder="0"></iframe>
 
 
 ## Data Models
