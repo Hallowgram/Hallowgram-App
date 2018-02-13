@@ -145,6 +145,6 @@ Michael Haviv (contributor)
 Jeiner Noriega (contributor)
 
 ## License
-[![License (3-Clause BSD)](https://img.shields.io/badge/license-BSD%203--Clause-blue.svg?style=plastic)](http://opensource.org/licenses/BSD-3-Clause)
+[![License (MIT)](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)](https://opensource.org/licenses/MIT)
 
 * This frontend web application is available under the [MIT License](https://github.com/mhaviv/Hallowgram/Hallowgram-App/blob/master/LICENSE.md).
