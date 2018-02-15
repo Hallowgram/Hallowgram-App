@@ -23,7 +23,9 @@ $ node app.js
 
 [hallowgram.herokuapp.com](hallowgram.herokuapp.com)
 
-<iframe src="https://giphy.com/embed/3ohjV8gHjRALwZNDi0" width="480" height="238" frameBorder="0"></iframe>
+<p>
+	<img src= "https://media.giphy.com/media/3ohjV8gHjRALwZNDi0/giphy.gif" width="480" height="238">
+</p>
 
 
 ## Data Models
