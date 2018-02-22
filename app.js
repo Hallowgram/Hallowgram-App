@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const multerS3 = require('multer-s3'); // Multer for AWS s3
+const favicon = require('serve-favicon');
+// var path = require('path');
 
 const Pic = require(__dirname + "/models/pic");
 const User = require(__dirname + "/models/user");
@@ -39,6 +41,9 @@ models.sequelize.sync().then(function () {
 }).catch(function (err) {
     console.log(err, 'Something went wrong with the Database Update!');
 });
+
+/* Favicon */
+app.use(favicon(__dirname + '/static/images/HallowGram-3.ico'));
 
 /*
 Multer - Upload Storage and File Destination
