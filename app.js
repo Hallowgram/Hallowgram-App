@@ -42,7 +42,7 @@ models.sequelize.sync().then(function () {
 });
 
 /* Favicon */
-app.use(favicon(__dirname + '/static/images/HallowGram-3.ico'));
+app.use(favicon(__dirname + '/static/images/favicon.ico'));
 
 /*
 Multer - Upload Storage and File Destination
