@@ -149,4 +149,4 @@ Jeiner Noriega (contributor)
 ## License
 [![License (MIT)](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)](https://opensource.org/licenses/MIT)
 
-* This frontend web application is available under the [MIT License](https://github.com/mhaviv/Hallowgram/Hallowgram-App/blob/master/LICENSE.md).
+* This fullstack web application is available under the [MIT License](https://github.com/mhaviv/Hallowgram/Hallowgram-App/blob/master/LICENSE.md).
