@@ -98,10 +98,26 @@ LOGO CSS
 .logoShaperHeader {
     border-radius: 50%;
     height: 4em;
-    padding: 0 2em;
+    padding: 0;
+    margin: 0 2em;
 }
 /* nav logo effect */
 .mylogo:hover {
 	transform: scale(2.4);
 	transition: transform .25s ease;
+}
+
+
+@media (max-width: 768px){
+	.responsive {
+		font-size: 1em;
+	}
+
+	.logoShaperHeader {
+		height: 3em;
+	}
+
+	.mylogo:hover {
+		transform: scale(1.5);
+	}
 }

@@ -52,34 +52,221 @@ button {
     margin-top: 0.5em;
 }
 
-@media (max-width: 640px){
-.e-label {
-  margin-left: 0;
-}
-}
-
-@media (min-width: 640px){
-.e-label {
-  margin-left: 1.8em;
-}
-
-.u-label {
-  margin-right: 0.2em;
-}
-
-.ln-label,
-.fn-label {
-  margin-right: 1em;
-}
-
-}
-
 #firstname, 
 #lastname,
 #username-style,
 #email-style,
-#password-style {
+#password-style,
+#email-style-login,
+#password-style-login {
     /* margin-left: 0.65em; */
     background-color: black;
     color: #FF7000;
+}
+
+.testEmailPassword {
+  float: left;
+  display: inline-block;
+  font-family: serif;
+  font-size: 1.5em;
+  color: #F5F5F5;
+  text-shadow: 1px 0px 0px #F5F5F5;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 500px){
+  .logoShaper {
+    width: 13em;
+    height: 13em;
+  }
+
+  .e-label {
+    margin-left: 0;
+  }
+
+  .e-label-login,
+  .p-label-login,
+  .labels {
+    display: block;
+    font-size: 1.5em;
+  }
+
+  .testEmailPassword {
+    float: none;
+    text-align: center;
+    font-size: 1.3em;
+  }
+
+  #email-style-login,
+  #password-style-login,
+  #firstname, 
+  #lastname,
+  #username-style,
+  #email-style,
+  #password-style {
+    font-size: 1.6em;
+  }
+
+  #signup-button,
+  #login-button,
+  #submit {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 640px){
+  .logoShaper {
+    width: 14em;
+    height: 14em;
+  }
+
+  .e-label {
+    margin-left: 0;
+  }
+
+  .e-label-login,
+  .p-label-login,
+  .labels {
+    display: block;
+    font-size: 1.5em;
+  }
+
+  .testEmailPassword {
+    float: none;
+    text-align: center;
+    font-size: 1.3em;
+  }
+
+  #email-style-login,
+  #password-style-login,
+  #firstname, 
+  #lastname,
+  #username-style,
+  #email-style,
+  #password-style {
+    font-size: 1.8em;
+  }
+
+  #signup-button,
+  #login-button,
+  #submit {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 940px){
+  .logoShaper {
+    width: 14em;
+    height: 14em;
+  }
+
+  .e-label {
+    margin-left: 0;
+  }
+
+  .e-label-login,
+  .p-label-login,
+  .labels {
+    display: block;
+    font-size: 1.5em;
+  }
+
+  .testEmailPassword {
+    float: none;
+    text-align: center;
+    font-size: 1.4em;
+  }
+
+  #email-style-login,
+  #password-style-login,
+  #firstname, 
+  #lastname,
+  #username-style,
+  #email-style,
+  #password-style {
+    font-size: 2em;
+  }
+
+  #signup-button,
+  #login-button,
+  #submit {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 940px) and (max-width: 1150px){
+  .logoShaper {
+    width: 16em;
+    height: 16em;
+  }
+
+  .e-label {
+    margin-left: 0;
+  }
+
+  .e-label-login,
+  .p-label-login,
+  .labels {
+    display: block;
+    font-size: 1.5em;
+  }
+
+  .testEmailPassword {
+    float: none;
+    text-align: center;
+    font-size: 1.4em;
+  }
+
+  #email-style-login,
+  #password-style-login,
+  #firstname, 
+  #lastname,
+  #username-style,
+  #email-style,
+  #password-style {
+    font-size: 2em;
+  }
+
+  #signup-button,
+  #login-button,
+  #submit {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 1150px){
+  .e-label-login,
+  .p-label-login {
+    /* display: block; */
+    font-size: 2em;
+  }
+
+  #email-style-login {
+    margin-right: 6.4em;
+  }
+
+  #password-style-login {
+    margin-right: 5.7em;
+  }
+
+  .e-label {
+    margin-left: 0.15em;
+  }
+
+  .p-label {
+    margin-right: 1.67em;
+  }
+
+  .u-label {
+    margin-right: 1.65em;
+  }
+
+  .fn-label {
+    margin-right: 2.5em;
+  }
+
+  .ln-label {
+    margin-right: 2.35em;
+  }
+
 }

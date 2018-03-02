@@ -17,16 +17,22 @@
         <h1>Login</h1>
     </div>
 
-  
+
 
     <form action="/login" method="POST" accept-charset="utf-8">
         <div class="field-shaper">
-            <label for="email" class="labels e-label">Email:</label>
-            <input name="email" id="email-style" class="inputFields" type="text"> 
+            <div class="testEmailPassword">
+                Email: test@hallowgram.com
+            </div>
+            <label for="email" class="labels e-label-login">Email:</label>
+            <input name="email" id="email-style-login" class="inputFields" type="text"> 
         </div>
         <div class="field-shaper">
-            <label for="password" class="labels">Password:</label>
-            <input name="password" id="password-style" class="inputFields" type="password">  
+            <div class="testEmailPassword">
+                Password: hallow123
+            </div>
+            <label for="password" class="labels p-label-login">Password:</label>
+            <input name="password" id="password-style-login" class="inputFields" type="password">  
         </div>
         <div class="field-shaper">
             <button type="login" class="inputFields" id="login-button">Login</button>  
