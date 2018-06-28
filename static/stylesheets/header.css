@@ -109,6 +109,10 @@ LOGO CSS
 
 
 @media (max-width: 768px){
+	nav {
+		width: 100%;
+	}
+
 	.responsive {
 		font-size: 1em;
 	}
